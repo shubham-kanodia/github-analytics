@@ -49,8 +49,46 @@ class DataCollector:
             )
         return releases
 
+    @staticmethod
+    def get_comments_from_response(comments_response):
+        comments = []
+        for elem in comments_response:
+            comments.append(
+                {
+                    "user": elem["user"]["login"],
+                    "created_at": elem["created_at"],
+                    "author_association": elem["author_association"],
+                    "body": elem["body"]
+                }
+            )
+        return comments
+
+    def get_issues_from_response(self, issues_response):
+        issues = []
+        for elem in issues_response:
+            comments_url = elem["comments_url"]
+            comments_response = self.api_crawler.call_url(comments_url)
+
+            comments = self.get_comments_from_response(comments_response)
+            issues.append(
+                {
+                    "title": elem["title"],
+                    "pull_request": elem.get("pull_request", {}).get("url"),
+                    "state": elem["state"],
+                    "created_at": elem["created_at"],
+                    "closed_at": elem["closed_at"],
+                    "comments": comments
+                }
+            )
+        return issues
+
     def collect(self, repo_url):
         repo_response = self.api_crawler.get_repo_data(repo_url)
+
+        issues_response = self.api_crawler.call_url(
+            self.clean_url(repo_response["issues_url"])
+        )
+        issues = self.get_issues_from_response(issues_response)
 
         contributors_response = self.api_crawler.call_url(
             self.clean_url(repo_response["contributors_url"])
@@ -80,5 +118,6 @@ class DataCollector:
             "contributors": contributors,
             "contributors_count": len(contributors),
             "commits": commits,
-            "releases": releases
+            "releases": releases,
+            "issues": issues
         }
