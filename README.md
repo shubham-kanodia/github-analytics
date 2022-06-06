@@ -1,1 +1,1 @@
-# github-analytics
+# GitHub Analytics
