@@ -35,6 +35,20 @@ class DataCollector:
             )
         return commits
 
+    @staticmethod
+    def get_releases_from_response(releases_response):
+        releases = []
+        for elem in releases_response:
+            releases.append(
+                {
+                    "name": elem["name"],
+                    "published_at": elem["published_at"],
+                    "message": elem.get("body"),
+                    "author_username": elem["author"]["login"]
+                }
+            )
+        return releases
+
     def collect(self, repo_url):
         repo_response = self.api_crawler.get_repo_data(repo_url)
 
@@ -48,6 +62,11 @@ class DataCollector:
         )
         commits = self.get_commits_from_response(commits_response)
 
+        releases_response = self.api_crawler.call_url(
+            self.clean_url(repo_response["releases_url"])
+        )
+        releases = self.get_releases_from_response(releases_response)
+
         return {
             "repo_full_name": repo_response["full_name"],
             "license": repo_response["license"]["name"],
@@ -60,5 +79,6 @@ class DataCollector:
             "organization": repo_response["organization"]["login"],
             "contributors": contributors,
             "contributors_count": len(contributors),
-            "commits": commits
+            "commits": commits,
+            "releases": releases
         }
