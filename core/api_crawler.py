@@ -1,7 +1,7 @@
 import requests
 
 
-class GHApi:
+class ApiCrawler:
     HEADERS = {
         "Accept": "application / vnd.github.v3 + json"
     }
