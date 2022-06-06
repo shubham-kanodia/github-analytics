@@ -30,7 +30,7 @@ class DataCollector:
                 {
                     "author": elem["commit"]["author"],
                     "message": elem["commit"]["message"],
-                    "pushed_at": elem["committer"]["date"]
+                    "pushed_at": elem["commit"]["committer"]["date"]
                 }
             )
         return commits

@@ -1,0 +1,594 @@
+{
+  "repo_full_name": "bitcoin/bitcoin",
+  "license": "MIT License",
+  "open_issues_count": 949,
+  "forks": 32498,
+  "stars": 64517,
+  "watchers": 64517,
+  "topics": [
+    "bitcoin",
+    "c-plus-plus",
+    "cryptocurrency",
+    "cryptography",
+    "p2p"
+  ],
+  "pushed_at": "2022-06-06T13:17:40Z",
+  "organization": "bitcoin",
+  "contributors": [
+    {
+      "username": "laanwj",
+      "contributions": 7314
+    },
+    {
+      "username": "MarcoFalke",
+      "contributions": 5174
+    },
+    {
+      "username": "fanquake",
+      "contributions": 2055
+    },
+    {
+      "username": "sipa",
+      "contributions": 2012
+    },
+    {
+      "username": "hebasto",
+      "contributions": 1122
+    },
+    {
+      "username": "gavinandresen",
+      "contributions": 1101
+    },
+    {
+      "username": "jnewbery",
+      "contributions": 788
+    },
+    {
+      "username": "jonasschnelli",
+      "contributions": 772
+    },
+    {
+      "username": "achow101",
+      "contributions": 743
+    },
+    {
+      "username": "practicalswift",
+      "contributions": 715
+    },
+    {
+      "username": "theuni",
+      "contributions": 607
+    },
+    {
+      "username": "jonatack",
+      "contributions": 576
+    },
+    {
+      "username": "TheBlueMatt",
+      "contributions": 504
+    },
+    {
+      "username": "luke-jr",
+      "contributions": 470
+    },
+    {
+      "username": "dongcarl",
+      "contributions": 458
+    },
+    {
+      "username": "ryanofsky",
+      "contributions": 456
+    },
+    {
+      "username": "promag",
+      "contributions": 334
+    },
+    {
+      "username": "meshcollider",
+      "contributions": 317
+    },
+    {
+      "username": "theStack",
+      "contributions": 309
+    },
+    {
+      "username": "sdaftuar",
+      "contributions": 294
+    },
+    {
+      "username": "non-github-bitcoin",
+      "contributions": 271
+    },
+    {
+      "username": "gmaxwell",
+      "contributions": 267
+    },
+    {
+      "username": "morcos",
+      "contributions": 209
+    },
+    {
+      "username": "ajtowns",
+      "contributions": 191
+    },
+    {
+      "username": "Sjors",
+      "contributions": 184
+    },
+    {
+      "username": "vasild",
+      "contributions": 182
+    },
+    {
+      "username": "glozow",
+      "contributions": 181
+    },
+    {
+      "username": "jtimon",
+      "contributions": 173
+    },
+    {
+      "username": "kallewoof",
+      "contributions": 163
+    },
+    {
+      "username": "instagibbs",
+      "contributions": 152
+    }
+  ],
+  "contributors_count": 30,
+  "commits": [
+    {
+      "author": {
+        "name": "MacroFake",
+        "email": "falke.marco@gmail.com",
+        "date": "2022-06-06T13:15:08Z"
+      },
+      "message": "Merge bitcoin/bitcoin#25255: ci: Improve \"ARM64 Android APK\" task\n\nc47944f4e93204e13686280da86efffee4ba6eb2 ci: Reuse some configure options in \"ARM64 Android APK\" task (Hennadii Stepanov)\n7739438811adef67766aa845122633ff7f594e35 ci, android: Update NDK up to r23c (Hennadii Stepanov)\nca0c3e50779771832dd8db419940fde877d9b691 ci, android: Update Command-line Tools from 2.1 up to 7.0 (Hennadii Stepanov)\n8790da3c1e9006ca9c1937595cb0f55889c1c026 ci: Drop unneeded packages in \"ARM64 Android APK\" task (Hennadii Stepanov)\n\nPull request description:\n\n  This PR improves the \"ARM64 Android APK\" CI task in the following ways:\n  - dropped packages that are not required to be installed\n  - updated Android Command-line Tools and Android NDK to make the CI environment closer to the default one, which is provided by Android Studio\n\nACKs for top commit:\n  icota:\n    utACK c47944f4e93204e13686280da86efffee4ba6eb2\n\nTree-SHA512: 45f5aba41007a502ae90333272370fd559c48a27d573896c449b3e436c5cf2b6440408381e4d20eb53104426ade26d3a9014c09dcdf3257ec897a537095efa4f",
+      "pushed_at": "2022-06-06T13:15:21Z"
+    },
+    {
+      "author": {
+        "name": "Hennadii Stepanov",
+        "email": "32963518+hebasto@users.noreply.github.com",
+        "date": "2022-06-05T12:13:13Z"
+      },
+      "message": "Merge bitcoin-core/gui#614: Drop no longer supported Android architecture\n\nd1b7bcbca2be4eae3bf7572a8343a3bd69ce61a9 qt: Drop no longer supported Android architecture (Hennadii Stepanov)\n\nPull request description:\n\n  The `i686-linux-android` arch support has been dropped since bitcoin/bitcoin#23744.\n\nACKs for top commit:\n  katesalazar:\n    ACK d1b7bcbca2be4eae3bf7572a8343a3bd69ce61a9\n  icota:\n    utACK https://github.com/bitcoin-core/gui/pull/614/commits/d1b7bcbca2be4eae3bf7572a8343a3bd69ce61a9\n  prusnak:\n    Approach ACK d1b7bcbca2be4eae3bf7572a8343a3bd69ce61a9\n\nTree-SHA512: 13689ec8c63c92b9a52a3c25edc35536b8e51ff583f57c45b168515f928d020d6bb85d03db9efd8d5efd57b944dfd313a89f5ff8a52f99982ccc8d9671f6e7a9",
+      "pushed_at": "2022-06-05T12:29:29Z"
+    },
+    {
+      "author": {
+        "name": "fanquake",
+        "email": "fanquake@gmail.com",
+        "date": "2022-06-04T19:52:10Z"
+      },
+      "message": "Merge bitcoin/bitcoin#24860: Miniscript integration follow-ups\n\nf3a50c9dfe645c548713e44e0eaf26ea9917a379 miniscript: rename IsSane and IsSaneSubexpression to prevent misuse (Antoine Poinsot)\nc5fe5163dc31db939c44129f2ff8283b290a9330 miniscript: nit: don't return after assert(false) (Antoine Poinsot)\n7bbaca9d8d355a17348a8d01e3e2521c5de466b0 miniscript: explicit the threshold size computation in multi() (Antoine Poinsot)\n8323e4249db50d46ae4f43c1d8a50666549ae938 miniscript: add an OpCode typedef for readability (Antoine Poinsot)\n7a549c6c59e6babbae76af008433426c6fa38fe2 miniscript: mark nodes with duplicate keys as insane (Antoine Poinsot)\n8c0f8bf7bc3750fad648af1a548517a272114bca fuzz: add a Miniscript target for string representation roundtripping (Antoine Poinsot)\nbe34d5077b2fede7404de7706362f5858c443525 fuzz: rename and improve the Miniscript Script roundtrip target (Antoine Poinsot)\n7eb70f0ac0a54adabc566e2b93bbf6b2beb54a79 miniscript: tiny doc fixups (Antoine Poinsot)\n5cea85f12cba5dcfe3a298eddfa711f582adffac miniscript: split ValidSatisfactions from IsSane (Antoine Poinsot)\na0f064dc1474a048e236bfff12f4def3aa11daf3 miniscript: introduce a CheckTimeLocksMix helper (Antoine Poinsot)\ned45ee3882e69266d550b56ff69388e071f0ad1b miniscript: use optional instead of bool/outarg (Antoine Poinsot)\n1ab8d89fd1bdb3c0f2a506b4a10df6c23ba21c48 miniscript: make equality operator non-recursive (Antoine Poinsot)\n5922c662c08a061b3b3d5ac34a31f9f9d4640d47 scripted-diff: miniscript: rename 'nodetype' variables to 'fragment' (Antoine Poinsot)\nc5f65db0f03b52bc4525acae944173829290ce6f miniscript: remove a workaround for a GCC 4.8 bug (Antoine Poinsot)\n\nPull request description:\n\n  The Miniscript repository and the Miniscript integration PR here have been a moving target for the past months, and some final cleanups were done there that were not included here. I initially intended to add some small followup commits to #24148 but i think there are enough of them to be worth a followup PR on its own.\n\n  Some parts of the code did not change since it was initially written in 2019, and the code could use some modernization. (Use std::optional instead of out args, remove old compiler workarounds).\n  We refactored the helpers to be more meaningful, and also did some renaming. A new fuzz target was also added and both were merged in a single file. 2 more will be added in #24149 that will be contained in this file too.\n\n  The only behaviour change in this PR is to rule out Miniscript with duplicate keys from sane Miniscripts. In a P2WSH context, signatures can be rebounded (Miniscript does not use CODESEPARATOR) and it's reasonable to assume that reusing keys across the Script drops the malleability guarantees.\n  It was previously assumed such Miniscript would never exist in the first place since a compiler should never create them. We finally agreed that if one were to exist (say, written by hand or from a buggy compiler) it would be very confusing if an imported Miniscript descriptor (after #24148) with duplicate keys was deemed sane (ie, \"safe to use\") by Bitcoin Core. We now check for duplicate keys in the constructor.\n\n  This is (still) joint work with Pieter Wuille. (Actually he entirely authored the cleanups and code modernization.)\n\nACKs for top commit:\n  sipa:\n    utACK f3a50c9dfe645c548713e44e0eaf26ea9917a379 (with the caveat that a lot of it is my own code)\n  sanket1729:\n    code review ACK f3a50c9dfe645c548713e44e0eaf26ea9917a379. Did not review the fuzz tests.\n\nTree-SHA512: c043325e4936fe25e8ece4266b46119e000c6745f88cea530fed1edf01c80f03ee6f9edc83b6e9d42ca01688d184bad16bfd967c5bb8037744e726993adf3deb",
+      "pushed_at": "2022-06-04T19:54:20Z"
+    },
+    {
+      "author": {
+        "name": "fanquake",
+        "email": "fanquake@gmail.com",
+        "date": "2022-06-04T19:22:40Z"
+      },
+      "message": "Merge bitcoin/bitcoin#25065: [kernel 2c/n] Introduce `kernel::Context`, encapsulate global init/teardown\n\nd87784ac87364fc977bbf9769c8bdb72dea8cbf9 kernel: SanityChecks: Return an error struct (Carl Dong)\n265d6393bf9ef52e7ef7de97ca9c031da82a5ad1 Move init::SanityCheck to kernel::SanityCheck (Carl Dong)\nfed085a1a4cd2787202752b6a0d98e42dce97f09 init: Initialize globals with kernel::Context's life (Carl Dong)\n7d03feef8156ef37a4efa01dc591467bc7d957bf kernel: Introduce empty and unused kernel::Context (Carl Dong)\neeb4fc20c578b1e428a92d64cc9f8f903a677580 test: Use Set/UnsetGlobals in BasicTestingSetup (Carl Dong)\n\nPull request description:\n\n  The full `init/common.cpp` is dependent on things like ArgsManager (which we wish to remove from libbitcoinkernel in the future) and sanity checks. These aren't necessary for libbitcoinkernel so we only extract the portion that is necessary (namely `init::{Set,Unset}Globals()`.\n\nACKs for top commit:\n  theuni:\n    ACK d87784ac87364fc977bbf9769c8bdb72dea8cbf9\n  vasild:\n    ACK d87784ac87364fc977bbf9769c8bdb72dea8cbf9\n\nTree-SHA512: cd6b4923ea1865001b5f0caed9a4ff99c198d22bf74154d935dc09a47fda22ebe585ec912398cea69f722454ed1dbb4898faab5a2d02fb4c5e719c5c8d71a3f9",
+      "pushed_at": "2022-06-04T19:25:57Z"
+    },
+    {
+      "author": {
+        "name": "Hennadii Stepanov",
+        "email": "32963518+hebasto@users.noreply.github.com",
+        "date": "2022-06-04T09:42:26Z"
+      },
+      "message": "qt: Drop no longer supported Android architecture",
+      "pushed_at": "2022-06-04T09:42:26Z"
+    },
+    {
+      "author": {
+        "name": "MacroFake",
+        "email": "falke.marco@gmail.com",
+        "date": "2022-06-03T06:46:40Z"
+      },
+      "message": "Merge bitcoin/bitcoin#25256: logging: fix logging empty thread name\n\n3a171f742c31addf5a343e8a6905054a1fbb12aa logging: fix logging empty threadname (klementtan)\n\nPull request description:\n\n  Currently, `leveldb` background thread does not have a thread name and as a result, an empty thread name is logged.\n\n  This PR fixes this by logging thread name as `\"unknown\"` if the thread name is empty\n\n  On master:\n  ```txt\n  2022-06-02T14:30:38Z [] [leveldb:debug] Generated table #281@0: 1862 keys, 138303 bytes\n  ```\n\n  On this PR:\n  ```txt\n  2022-06-02T14:30:38Z [unknown] [leveldb:debug] Generated table #281@0: 1862 keys, 138303 bytes\n  ```\n\nACKs for top commit:\n  laanwj:\n    Code review ACK 3a171f742c31addf5a343e8a6905054a1fbb12aa\n  hebasto:\n    ACK 3a171f742c31addf5a343e8a6905054a1fbb12aa\n\nTree-SHA512: 0af0fa5c4ddd3640c6dab9595fe9d97f74d0e0f4b41287a6630cf8ac5a21240250e0659ec4ac5a561e888d522f5304bf627104de2aba0fd0a86c1222de0897c2",
+      "pushed_at": "2022-06-03T06:46:53Z"
+    },
+    {
+      "author": {
+        "name": "laanwj",
+        "email": "126646+laanwj@users.noreply.github.com",
+        "date": "2022-06-02T20:22:05Z"
+      },
+      "message": "Merge bitcoin/bitcoin#24171: p2p: Sync chain more readily from inbound peers during IBD\n\n48262a00f58489d705314ee3c31136133040bb0e Add functional test for block sync from inbound peers (Suhas Daftuar)\n0569b5c4bbf8f725e3969d76f7cb081cdf1e4195 Sync chain more readily from inbound peers during IBD (Suhas Daftuar)\n\nPull request description:\n\n  When in IBD, if the honest chain is only known by inbound peers, then we must\n  eventually sync from them in order to learn it. This change allows us to\n  perform initial headers sync and fetch blocks from inbound peers, if we have no\n  blocks in flight.\n\n  The restriction on having no blocks in flight means that we will naturally\n  throttle our block downloads to any such inbound peers that we may be\n  downloading from, until we leave IBD. This is a tradeoff between preferring\n  outbound peers for most of our block download, versus making sure we always\n  eventually will get blocks we need that are only known by inbound peers even\n  during IBD, as otherwise we may be stuck in IBD indefinitely (which could have\n  cascading failure on the network, if a large fraction of the network managed to\n  get stuck in IBD).\n\n  Note that the test in the second commit fails on master, without the first commit.\n\nACKs for top commit:\n  ajtowns:\n    ACK 48262a00f58489d705314ee3c31136133040bb0e\n  sipa:\n    ACK 48262a00f58489d705314ee3c31136133040bb0e\n\nTree-SHA512: ffad3a05fa9a32a92226843c9128f52c275e8d51930fde7368badc340227f2ed680561c4c9f2937b4e3bd722474464849ec9b624f912f5e380ce98d71b55764d",
+      "pushed_at": "2022-06-02T20:35:05Z"
+    },
+    {
+      "author": {
+        "name": "laanwj",
+        "email": "126646+laanwj@users.noreply.github.com",
+        "date": "2022-06-02T18:42:59Z"
+      },
+      "message": "Merge bitcoin/bitcoin#25267: test: check `replaceable` mismatch error in `createrawtransaction` RPC\n\n1bace0cfeef35c4413769474173a692093a046f3 test: check `replaceable` mismatch error in `createrawtransaction` RPC (Sebastian Falbesoner)\n\nPull request description:\n\n  This PR adds missing test coverage for the createrawtransaction RPC, in the case that the `replaceable` parameter is set, but the passed transaction doesn't signal RBF (i.e. no input's nSequence is < 0xffffffe):\n  https://github.com/bitcoin/bitcoin/blob/1c7ef0abd11f35a27cc860ceb7e075b78f53cecf/src/rpc/rawtransaction_util.cpp#L135-L137\n\nACKs for top commit:\n  laanwj:\n    Code review ACK 1bace0cfeef35c4413769474173a692093a046f3\n  brunoerg:\n    crACK 1bace0cfeef35c4413769474173a692093a046f3\n  furszy:\n    Code review ACK 1bace0cf\n\nTree-SHA512: e6390401c8026c782643e3de7be56ea1745736b7e4c8886186d75c353c301b57afdabb631b9d8e2770386e4d7a59ac5fba1f380b9a5a21296512ca4515b35baa",
+      "pushed_at": "2022-06-02T18:43:26Z"
+    },
+    {
+      "author": {
+        "name": "Hennadii Stepanov",
+        "email": "32963518+hebasto@users.noreply.github.com",
+        "date": "2022-06-02T17:34:14Z"
+      },
+      "message": "Merge bitcoin-core/gui#583: Add translator comments to `TransactionDesc::FormatTxStatus`\n\n8cfb5627d51ecaa1d1e92ec21e2ac56a380c77e6 qt, refactor: add translator comments in `TransactionDesc::FormatTxStatus()` (w0xlt)\n\nPull request description:\n\n  This PR adds translator comments to `TransactionDesc::FormatTxStatus` as suggested in https://github.com/bitcoin-core/gui/pull/552#discussion_r812602741 and https://github.com/bitcoin-core/gui/pull/552#issuecomment-1097294710.\n\nACKs for top commit:\n  hebasto:\n    ACK 8cfb5627d51ecaa1d1e92ec21e2ac56a380c77e6\n\nTree-SHA512: 2c44b915e6309508f34fc22bb90e3d88ad32ed82fdb3a395f7c6716941edc1b311991140d28e838ad622a7484ed86aedd25e55674857fec8716d9575aed25fa0",
+      "pushed_at": "2022-06-02T17:36:40Z"
+    },
+    {
+      "author": {
+        "name": "Hennadii Stepanov",
+        "email": "32963518+hebasto@users.noreply.github.com",
+        "date": "2022-06-02T17:14:16Z"
+      },
+      "message": "Merge bitcoin-core/gui#613: Remove unnecessary wallet includes from rpcconsole.cpp\n\n09942736495502cedcef4b097dde6abd9327fbdb qt: Remove unnecessary wallet includes from rpcconsole.cpp (laanwj)\n\nPull request description:\n\n  Fixes bitcoin/bitcoin#25266\n\nACKs for top commit:\n  MarcoFalke:\n    cr ACK 09942736495502cedcef4b097dde6abd9327fbdb\n  hebasto:\n    ACK 09942736495502cedcef4b097dde6abd9327fbdb.\n\nTree-SHA512: 02cef4a1f3522c4cd662853eb930dfdf0866a5bd959a00f4c42d8c741b0751df4cf2e14c304b93ca3ce699c0e9730caf3d6fa2053009af312c60e861b0f79179",
+      "pushed_at": "2022-06-02T17:20:07Z"
+    },
+    {
+      "author": {
+        "name": "laanwj",
+        "email": "126646+laanwj@users.noreply.github.com",
+        "date": "2022-06-02T17:08:20Z"
+      },
+      "message": "Merge bitcoin/bitcoin#24927: Add test util to populate mempool with random transactions, fix #24634 bug\n\nd2f8f1b307b056d1a54fb02a99da2cb664570904 use testing setup mempool in ComplexMemPool bench (glozow)\naecc332a71037812b7334a0ea72d0bcf8160c12f create and use mempool transactions using real coins in MempoolCheck (glozow)\n21187506311d1703d2bca21ccc17c3a921454b70 [test util] to populate mempool with random transactions/packages (glozow)\n5374dfc4e3da0e6a76f33b42966b4acf446233dc [test util] use -checkmempool for TestingSetup mempool check ratio (glozow)\nd7d9c7b2661d7f4292bfcdc389a806028fa2207d [test util] add chain name to TestChain100Setup ctor (glozow)\n\nPull request description:\n\n  Fixes #24634 by using the `testing_setup`'s actual mempool rather than a locally-declared mempool for running `check()`.\n\n  Also creates a test utility for populating the mempool with a bunch of random transactions. I imagine this could be useful in other places as well; it was necessary here because we needed the mempool to contain transactions *spending coins available in the current chainstate*. The existing `CreateOrderedCoins()` is insufficient because it creates coins out of thin air.\n\n  Also implements the separate suggestion to use the `TestingSetup` mempool in `ComplexMemPool` bench.\n\nACKs for top commit:\n  laanwj:\n    Code review ACK d2f8f1b307b056d1a54fb02a99da2cb664570904\n\nTree-SHA512: 44ab5a9e55b126b5a5bc33f05fbad1380b9c43c84736c7cf487be025e0e3f5d75216ccf5a3088b0935da817e3dacfba99d2885f75bcb6e7eaa24cd20a82c24c8",
+      "pushed_at": "2022-06-02T17:08:43Z"
+    },
+    {
+      "author": {
+        "name": "laanwj",
+        "email": "126646+laanwj@users.noreply.github.com",
+        "date": "2022-06-02T17:04:49Z"
+      },
+      "message": "Merge bitcoin/bitcoin#25264: kernel: pass params to BlockManager rather than using a global\n\na4741bd8d4b90b451d982d98eabd0dc5572baa29 kernel: pass params to BlockManager rather than using a global (Cory Fields)\n\nPull request description:\n\n  In a discussion today, dongcarl and I realized that is the only usage of the global `Params()` left in the kernel code.\n\n  We can use the readily available reference in `ChainstateManager` instead.\n\n  Note: There are still some uses of `BaseParams` in the kernel, so it doesn't make sense to rearrange the definitions quite yet. Once those are gone we can split the globals into new files.\n\nACKs for top commit:\n  MarcoFalke:\n    cr ACK a4741bd8d4b90b451d982d98eabd0dc5572baa29\n  laanwj:\n    Code review ACK a4741bd8d4b90b451d982d98eabd0dc5572baa29\n\nTree-SHA512: bfcc0c35e6c23689e968ccc96ceda39dd5a47fe94fbe617902110fe5865c30a40ea614bcfd4b4a2c846d2e84340aa8973e70b0938786af0fecfa3e6016d7fcad",
+      "pushed_at": "2022-06-02T17:04:53Z"
+    },
+    {
+      "author": {
+        "name": "w0xlt",
+        "email": "94266259+w0xlt@users.noreply.github.com",
+        "date": "2022-02-21T19:17:00Z"
+      },
+      "message": "qt, refactor: add translator comments in `TransactionDesc::FormatTxStatus()`",
+      "pushed_at": "2022-06-02T16:56:36Z"
+    },
+    {
+      "author": {
+        "name": "Carl Dong",
+        "email": "contact@carldong.me",
+        "date": "2022-05-25T22:02:54Z"
+      },
+      "message": "kernel: SanityChecks: Return an error struct\n\nThis reduces libbitcoinkernel's coupling with ui_interface and\ntranslation.",
+      "pushed_at": "2022-06-02T16:22:46Z"
+    },
+    {
+      "author": {
+        "name": "laanwj",
+        "email": "126646+laanwj@users.noreply.github.com",
+        "date": "2022-06-02T16:16:02Z"
+      },
+      "message": "qt: Remove unnecessary wallet includes from rpcconsole.cpp",
+      "pushed_at": "2022-06-02T16:17:33Z"
+    },
+    {
+      "author": {
+        "name": "Carl Dong",
+        "email": "contact@carldong.me",
+        "date": "2022-05-27T20:47:05Z"
+      },
+      "message": "Move init::SanityCheck to kernel::SanityCheck",
+      "pushed_at": "2022-06-02T15:42:12Z"
+    },
+    {
+      "author": {
+        "name": "Carl Dong",
+        "email": "contact@carldong.me",
+        "date": "2022-05-25T18:31:54Z"
+      },
+      "message": "init: Initialize globals with kernel::Context's life\n\n...instead of explicitly calling init::{Set,Unset}Globals.\n\nCool thing about this is that in both the testing and bitcoin-chainstate\ncodepaths, we no longer need to explicitly unset globals. The\nkernel::Context goes out of scope and the globals are unset\n\"automatically\".\n\nAlso construct kernel::Context outside of AppInitSanityChecks()",
+      "pushed_at": "2022-06-02T15:40:03Z"
+    },
+    {
+      "author": {
+        "name": "Cory Fields",
+        "email": "cory-nospam-@coryfields.com",
+        "date": "2022-06-01T19:10:10Z"
+      },
+      "message": "kernel: pass params to BlockManager rather than using a global",
+      "pushed_at": "2022-06-02T15:18:09Z"
+    },
+    {
+      "author": {
+        "name": "klementtan",
+        "email": "klementtan@gmail.com",
+        "date": "2022-05-31T15:28:16Z"
+      },
+      "message": "logging: fix logging empty threadname",
+      "pushed_at": "2022-06-02T14:30:30Z"
+    },
+    {
+      "author": {
+        "name": "MacroFake",
+        "email": "falke.marco@gmail.com",
+        "date": "2022-06-02T11:05:12Z"
+      },
+      "message": "Merge bitcoin/bitcoin#24531: Use designated initializers\n\nfa72e0ba15c6382e9068be221ab4872bef000cbc Use designated initializers (MarcoFalke)\n\nPull request description:\n\n  Designated initializers are supported since gcc 4.7 (Our minimum required is 8) and clang 3 (Our minimum required is 7). They work out of the box with C++17, and only msvc requires the C++20 flag to be set. I don't expect any of our msvc users will run into issues due to this. See also https://bitcoin.jonasschnelli.ch/ircmeetings/logs/bitcoin-core-dev/2022/bitcoin-core-dev.2022-03-10-19.00.log.html#l-114\n\nACKs for top commit:\n  kristapsk:\n    ACK fa72e0ba15c6382e9068be221ab4872bef000cbc\n  hebasto:\n    ACK fa72e0ba15c6382e9068be221ab4872bef000cbc\n\nTree-SHA512: a198e9addd9af69262a7e79ae4377b55697c8dfe768b8b3d444526544b1d1f85df46f0ae81b7541bf2f73e5868fb944b159e5bf234303c7b8b9d778afb0b2840",
+      "pushed_at": "2022-06-02T11:05:29Z"
+    },
+    {
+      "author": {
+        "name": "Sebastian Falbesoner",
+        "email": "sebastian.falbesoner@gmail.com",
+        "date": "2022-06-01T22:58:47Z"
+      },
+      "message": "test: check `replaceable` mismatch error in `createrawtransaction` RPC",
+      "pushed_at": "2022-06-02T10:59:13Z"
+    },
+    {
+      "author": {
+        "name": "MacroFake",
+        "email": "falke.marco@gmail.com",
+        "date": "2022-06-01T18:16:01Z"
+      },
+      "message": "Merge bitcoin/bitcoin#25262: test: Set maxfeerate=0 in MiniWallet sendrawtransaction()\n\nfafaad98f785d763848c546d096e6738d507709e test: Set maxfeerate=0 in MiniWallet sendrawtransaction() (MacroFake)\n\nPull request description:\n\n  It should be safe to set, because MiniWallet will only ever deal with test transactions, so loss-of-funds is not a reason to keep the feerate check.\n\n  It is beneficial to set, as it makes tests less verbose to write. Also, it may speed up tests, as the fee-check can be skipped: https://github.com/bitcoin/bitcoin/pull/25087#discussion_r877246529\n\nACKs for top commit:\n  michaelfolkson:\n    ACK fafaad98f785d763848c546d096e6738d507709e\n  theStack:\n    Code-review ACK fafaad98f785d763848c546d096e6738d507709e\n\nTree-SHA512: 94c5c163595207a295c7b21f0127d669a9307f6f8b1de5e043d43c52a6714076e2fdce65f2644308a2b90c679642c94f771dab1ff8bc5c0c8b1f5013324b3902",
+      "pushed_at": "2022-06-01T18:16:04Z"
+    },
+    {
+      "author": {
+        "name": "fanquake",
+        "email": "fanquake@gmail.com",
+        "date": "2022-06-01T18:13:37Z"
+      },
+      "message": "Merge bitcoin/bitcoin#25249: Bump univalue subtree\n\n025c6ca509f9e3975505d9fd786a4ca73a3a3a2d Squashed 'src/univalue/' changes from 6c19d050a9..de4f73ddca (MacroFake)\n9b50a309ff21b0d5d85ded8b67cb08ae2e75fe84 refactor: Replace get_int by getInt<int> alias (MacroFake)\ne4e8186ab41c897b8a849dba25ae44475fe60550 refactor: Explicitly convert atomic<int> to int (Jo\u00e3o Barbosa)\n\nPull request description:\n\n  This bumps the univalue subtree and changes two lines of our code. Apart from the get_int -> getInt change, this is mostly a rebase of https://github.com/bitcoin/bitcoin/pull/15975, which was closed back then.\n\n  However, given the numerous UniValue copy bugs and performance regressions in the past years, I think it makes sense to finally go through with the changes and disable potentially expensive implicit UniValue copies, which may cause OOM.\n\n  The changes here are not strictly required for that, but make future changes less verbose and easier to review.\n\nACKs for top commit:\n  laanwj:\n    Code review ACK fa0cc61b7f79b1844ac0fb3831e606a1ba861c15\n  fanquake:\n    ACK fa0cc61b7f79b1844ac0fb3831e606a1ba861c15\n\nTree-SHA512: 9ab9e371e6a745a80c441e99fb9cd407602a8066df883135e0ea7eced7b0c6ef0e9bc88f1d99a2b4804128d636727229f44d72b5615dbf2d70da4af63fa6adec",
+      "pushed_at": "2022-06-01T18:13:43Z"
+    },
+    {
+      "author": {
+        "name": "MarcoFalke",
+        "email": "falke.marco@gmail.com",
+        "date": "2022-03-11T09:14:31Z"
+      },
+      "message": "Use designated initializers",
+      "pushed_at": "2022-06-01T18:06:01Z"
+    },
+    {
+      "author": {
+        "name": "MacroFake",
+        "email": "falke.marco@gmail.com",
+        "date": "2022-06-01T15:05:13Z"
+      },
+      "message": "test: Set maxfeerate=0 in MiniWallet sendrawtransaction()",
+      "pushed_at": "2022-06-01T15:07:05Z"
+    },
+    {
+      "author": {
+        "name": "fanquake",
+        "email": "fanquake@gmail.com",
+        "date": "2022-06-01T14:57:34Z"
+      },
+      "message": "Merge bitcoin/bitcoin#25244: build: pass bdb cppflags only where needed\n\n46a890960e4b07e5aec479aa8e07e9c34ce68aee build: pass bdb cppflags only where needed (fanquake)\n\nPull request description:\n\n  Move bdb cppflags out of the catch-all `BITCOIN_INCLUDES`, and pass them\n  only where they are needed, which is in libbitcoin_node/wallet and the tests.\n\nACKs for top commit:\n  hebasto:\n    ACK 46a890960e4b07e5aec479aa8e07e9c34ce68aee\n\nTree-SHA512: ac639bf88be1c21c5205bb14c983330c72c37f17ec4c15a746a86c54dd83853e3d75802eff48c4647484b07c1bae943ca2c3d61d2a8b0bed07d9c5b4a71dcec4",
+      "pushed_at": "2022-06-01T14:57:52Z"
+    },
+    {
+      "author": {
+        "name": "MacroFake",
+        "email": "falke.marco@gmail.com",
+        "date": "2022-06-01T14:39:36Z"
+      },
+      "message": "Merge bitcoin/bitcoin#25087: test: use MiniWallet for feature_dbcrash.py\n\n1da5e45725a49a867f7ce16fb37b138ad329d132 test: use MiniWallet for feature_dbcrash.py (Sebastian Falbesoner)\n\nPull request description:\n\n  This PR enables one more of the non-wallet functional tests (feature_dbcrash.py) to be run even with the Bitcoin Code wallet by using the MiniWallet instead, as proposed in https://github.com/bitcoin/bitcoin/issues/20078.\n\nACKs for top commit:\n  laanwj:\n    Code review ACK 1da5e45725a49a867f7ce16fb37b138ad329d132\n  brunoerg:\n    crACK 1da5e45725a49a867f7ce16fb37b138ad329d132\n\nTree-SHA512: 75ee9a32fd1451254004797d695d18032bd0fcb66ebd88cf737e147e43812525f6e884ec05fcc4f76f566dc71174c8ed7347bcdce16567db6511746ae64cead0",
+      "pushed_at": "2022-06-01T14:43:49Z"
+    },
+    {
+      "author": {
+        "name": "laanwj",
+        "email": "126646+laanwj@users.noreply.github.com",
+        "date": "2022-06-01T11:29:25Z"
+      },
+      "message": "Merge bitcoin/bitcoin#24416: doc: Avoid ADL for function calls\n\n52a797bfe5ced4329f2272be417c35730ec8839f doc: Avoid ADL for function calls (Hennadii Stepanov)\n\nPull request description:\n\n  It happened two times recently, when [ADL](https://en.cppreference.com/w/cpp/language/adl) popped up unexpectedly and brought some confusion:\n  - https://github.com/bitcoin/bitcoin/pull/24338/files#r805989994\n  > Any idea why this even compiles?\n  - https://www.erisian.com.au/bitcoin-core-dev/log-2022-02-18.html#l-51:\n  > 2022-02-18T03:24:14  \\<dongcarl\\> Does anyone know why this compiles? https://github.com/dongcarl/bitcoin/commit/6d3d2caa3751f968f72d19fa84f001472fb26749\n  > 2022-02-18T03:24:14  \\<dongcarl\\> GetUTXOStatsWithHasher and MakeUTXOHasher are both in the `kernel::` namespace and I never added a `using` declaration on top...\n  > 2022-02-18T03:25:53  \\<sipa\\> https://en.cppreference.com/w/cpp/language/adl ?\n\n  Let's document our intention to avoid similar cases in the future.\n\nACKs for top commit:\n  laanwj:\n    Anyhow, ACK 52a797bfe5ced4329f2272be417c35730ec8839f, there is no need to hold merge up on this, documenting it is a step forward.\n\nTree-SHA512: f52688b5d8f6130302185206ec6ea4731b099a75294ea2d477901a52d6d58473e3427e658aea408c140c2824c37a0399ec7376aded2a91197895ea52d51f0018",
+      "pushed_at": "2022-06-01T11:32:48Z"
+    },
+    {
+      "author": {
+        "name": "laanwj",
+        "email": "126646+laanwj@users.noreply.github.com",
+        "date": "2022-06-01T06:38:44Z"
+      },
+      "message": "Merge bitcoin/bitcoin#25165: doc: Explain squashing with merge commits\n\nfa2d226ac950d8b4f7e430732f13ad408c504745 doc: Explain squashing with merge commits (MacroFake)\n\nPull request description:\n\n  This avoids having to explain it in each thread\n\nACKs for top commit:\n  laanwj:\n    ACK fa2d226ac950d8b4f7e430732f13ad408c504745\n\nTree-SHA512: e1533ee7c0ab0101c78aaebed97dc889b5eb941cf4c2dfbabbb5f0ec1bb7b1313a1a2e2405235d68c761f039373cebac67ce691a72c820a9252429d50c1ac7d5",
+      "pushed_at": "2022-06-01T06:39:08Z"
+    },
+    {
+      "author": {
+        "name": "MacroFake",
+        "email": "falke.marco@gmail.com",
+        "date": "2022-06-01T06:12:14Z"
+      },
+      "message": "Merge bitcoin/bitcoin#25259: test: check pre-segwit peer error in `getblockfrompeer` RPC\n\n7d0f67a0d5b94395e29fe240326824cd3be8ae9b test: check pre-segwit peer error in `getblockfrompeer` RPC (Sebastian Falbesoner)\n\nPull request description:\n\n  This PR adds missing test coverage for the `getblockfrompeer` RPC, in the case that a block is tried to be fetched from a pre-segwit peer (i.e. a peer that doesn't signal the service bit `NODE_WITNESS`):\n\n  https://github.com/bitcoin/bitcoin/blob/d4d9daff7ab60a9f0cae0a34f86be0bb497f62f4/src/net_processing.cpp#L1564-L1565\n\nACKs for top commit:\n  MarcoFalke:\n    cr ACK 7d0f67a0d5b94395e29fe240326824cd3be8ae9b\n\nTree-SHA512: bc330820686fe45577e7a53d66e2a0b339ee3ca4ef348ba3cab0a78ed891e47b3651cadf3c6c3c35d1e9a95779df010322c12d37b36700e828f6064ae35842fd",
+      "pushed_at": "2022-06-01T06:12:16Z"
+    }
+  ],
+  "releases": [
+    {
+      "name": "Bitcoin Core 23.0",
+      "published_at": "2022-04-25T14:17:32Z",
+      "message": "Bitcoin Core version 23.0 is now available from:\r\n\r\nhttps://bitcoincore.org/bin/bitcoin-core-23.0/\r\n\r\nFor the release notes please see the git repository:\r\n\r\nhttps://github.com/bitcoin/bitcoin/blob/master/doc/release-notes/release-notes-23.0.md\r\n\r\nDo not use the links provided by GitHub, rather use the above download links, they are guaranteed to be generated deterministically and signed.",
+      "author_username": "laanwj"
+    },
+    {
+      "name": "Bitcoin Core 22.0",
+      "published_at": "2021-09-14T11:32:48Z",
+      "message": "Bitcoin Core version 22.0 is now available from:\r\n\r\nhttps://bitcoincore.org/bin/bitcoin-core-22.0/\r\n\r\nFor the release notes please see the git repository:\r\n\r\nhttps://github.com/bitcoin/bitcoin/blob/master/doc/release-notes/release-notes-22.0.md\r\n\r\nDo not use the links provided by GitHub, rather use the above download links, they are guaranteed to be generated deterministically and signed.",
+      "author_username": "laanwj"
+    },
+    {
+      "name": "Bitcoin Core 0.21.1",
+      "published_at": "2021-05-03T01:33:04Z",
+      "message": "Bitcoin Core version 0.21.1 is now available from:\r\n\r\nhttps://bitcoincore.org/bin/bitcoin-core-0.21.1/\r\n\r\nFor the release notes please see the git repository:\r\n\r\nhttps://github.com/bitcoin/bitcoin/blob/master/doc/release-notes/release-notes-0.21.1.md\r\n\r\nPreferably use the above download link, not the links provided by GitHub to download the source tarball, as the release tarballs are generated deterministically whereas GitHub's are not.\r\n",
+      "author_username": "fanquake"
+    },
+    {
+      "name": "Bitcoin Core 0.21.0",
+      "published_at": "2021-01-15T19:52:11Z",
+      "message": "Bitcoin Core version 0.21.0 is now available from:\r\n\r\nhttps://bitcoincore.org/bin/bitcoin-core-0.21.0/\r\n\r\nFor the release notes please see the git repository:\r\n\r\nhttps://github.com/bitcoin/bitcoin/blob/master/doc/release-notes/release-notes-0.21.0.md\r\n\r\nPreferably use the above download link, not the links provided by GitHub to download the source tarball, as the release tarballs are generated deterministically whereas GitHub's are not.",
+      "author_username": "laanwj"
+    },
+    {
+      "name": "Bitcoin Core 0.20.1",
+      "published_at": "2020-08-02T07:52:16Z",
+      "message": "Bitcoin Core version 0.20.1 is now available from:\r\n\r\nhttps://bitcoincore.org/bin/bitcoin-core-0.20.1/\r\n\r\nFor the release notes please see the git repository:\r\n\r\nhttps://github.com/bitcoin/bitcoin/blob/master/doc/release-notes/release-notes-0.20.1.md\r\n\r\nPreferably use the above download link, not the links provided by GitHub to download the source tarball, as the release tarballs are generated deterministically whereas GitHub's are not.",
+      "author_username": "MarcoFalke"
+    },
+    {
+      "name": "Bitcoin Core 0.20.0",
+      "published_at": "2020-06-03T11:28:21Z",
+      "message": "Bitcoin Core version 0.20.0 is now available from:\r\n\r\nhttps://bitcoincore.org/bin/bitcoin-core-0.20.0/\r\n\r\nFor the release notes please see the git repository:\r\n\r\nhttps://github.com/bitcoin/bitcoin/blob/master/doc/release-notes/release-notes-0.20.0.md\r\n\r\nPreferably use the above download link, not the links provided by GitHub to download the source tarball, as the release tarballs are generated deterministically whereas GitHub's are not.",
+      "author_username": "laanwj"
+    },
+    {
+      "name": "Bitcoin Core 0.19.1",
+      "published_at": "2020-03-09T19:58:58Z",
+      "message": "Bitcoin Core version 0.19.1 is now available from:\r\n\r\nhttps://bitcoincore.org/bin/bitcoin-core-0.19.1/\r\n\r\nFor the release notes please see the git repository:\r\n\r\nhttps://github.com/bitcoin/bitcoin/blob/master/doc/release-notes/release-notes-0.19.1.md\r\n\r\nPreferably use the above download link, not the links provided by GitHub to download the source tarball, as the release tarballs are generated deterministically whereas GitHub's are not.",
+      "author_username": "laanwj"
+    },
+    {
+      "name": "Bitcoin Core 0.19.0.1",
+      "published_at": "2019-11-24T13:26:31Z",
+      "message": "Bitcoin Core version 0.19.0.1 is now available from:\r\n\r\nhttps://bitcoincore.org/bin/bitcoin-core-0.19.0.1/\r\n\r\nFor the release notes please see the git repository:\r\n\r\nhttps://github.com/bitcoin/bitcoin/blob/master/doc/release-notes/release-notes-0.19.0.1.md\r\n\r\nPreferably use the above download link, not the links provided by GitHub to download the source tarball, as the release tarballs are generated deterministically whereas GitHub's are not.\r\n",
+      "author_username": "laanwj"
+    },
+    {
+      "name": "Bitcoin Core 0.18.1",
+      "published_at": "2019-08-09T18:53:34Z",
+      "message": "Bitcoin Core version 0.18.1 is now available from:\r\n\r\nhttps://bitcoincore.org/bin/bitcoin-core-0.18.1/\r\n\r\nFor the release notes please see the git repository:\r\n\r\nhttps://github.com/bitcoin/bitcoin/blob/master/doc/release-notes/release-notes-0.18.1.md\r\n\r\nPreferably use the above download link, not the links provided by GitHub to download the source tarball, as the release tarballs are generated deterministically whereas GitHub's are not.\r\n",
+      "author_username": "laanwj"
+    },
+    {
+      "name": "Bitcoin Core 0.18.0",
+      "published_at": "2019-05-18T18:22:20Z",
+      "message": "Bitcoin Core version 0.18.0 is now available from:\r\n\r\nhttps://bitcoincore.org/bin/bitcoin-core-0.18.0/\r\n\r\nFor the release notes please see the git repository:\r\n\r\nhttps://github.com/bitcoin/bitcoin/blob/master/doc/release-notes/release-notes-0.18.0.md\r\n\r\nPreferably use the above download link, not the links provided by GitHub to download the source tarball, as the release tarballs are generated deterministically whereas GitHub's are not.\r\n",
+      "author_username": "laanwj"
+    },
+    {
+      "name": "Bitcoin Core 0.17.1",
+      "published_at": "2018-12-25T09:36:21Z",
+      "message": "Bitcoin Core version 0.17.1 is now available from:\r\n\r\nhttps://bitcoincore.org/bin/bitcoin-core-0.17.1/\r\n\r\nFor the release notes please see the git repository:\r\n\r\nhttps://github.com/bitcoin/bitcoin/blob/master/doc/release-notes/release-notes-0.17.1.md\r\n\r\nPreferably use the above download link, not the links provided by GitHub to download the source tarball, as the release tarballs are generated deterministically whereas GitHub's are not.\r\n",
+      "author_username": "laanwj"
+    },
+    {
+      "name": "Bitcoin Core 0.17.0.1",
+      "published_at": "2018-11-06T08:34:16Z",
+      "message": "Bitcoin Core version 0.17.0.1 is now available from:\r\n\r\nhttps://bitcoincore.org/bin/bitcoin-core-0.17.0.1/\r\n\r\nFor the release notes please see the git repository:\r\n\r\nhttps://github.com/bitcoin/bitcoin/blob/master/doc/release-notes/release-notes-0.17.0.1.md\r\n\r\nPreferably use the above download link, not the links provided by GitHub to download the source tarball, as the release tarballs are generated deterministically whereas GitHub's are not.\r\n",
+      "author_username": "laanwj"
+    },
+    {
+      "name": "Bitcoin Core 0.17.0",
+      "published_at": "2018-10-03T09:22:37Z",
+      "message": "Bitcoin Core version 0.17.0 is now available from:\r\n\r\nhttps://bitcoincore.org/bin/bitcoin-core-0.17.0/\r\n\r\nFor the release notes please see the git repository:\r\n\r\nhttps://github.com/bitcoin/bitcoin/blob/master/doc/release-notes/release-notes-0.17.0.md\r\n\r\nPreferably use the above download link, not the links provided by GitHub to download the source tarball, as the release tarballs are generated deterministically whereas GitHub's are not.\r\n",
+      "author_username": "laanwj"
+    },
+    {
+      "name": "Bitcoin Core 0.14.3",
+      "published_at": "2018-09-28T15:29:44Z",
+      "message": "Bitcoin Core version 0.14.3 is now available from:\r\n\r\nhttps://bitcoincore.org/bin/bitcoin-core-0.14.3/\r\n\r\nFor the release notes please see the git repository:\r\n\r\nhttps://github.com/bitcoin/bitcoin/blob/master/doc/release-notes/release-notes-0.14.3.md\r\n\r\nPreferably use the above download link, not the below links to download the source tarball, as the release tarballs are generated deterministically whereas GitHub's are not.\r\n",
+      "author_username": "laanwj"
+    },
+    {
+      "name": "Bitcoin Core 0.15.2",
+      "published_at": "2018-09-28T15:30:19Z",
+      "message": "Bitcoin Core version 0.15.2 is now available from:\r\n\r\nhttps://bitcoincore.org/bin/bitcoin-core-0.15.2/\r\n\r\nFor the release notes please see the git repository:\r\n\r\nhttps://github.com/bitcoin/bitcoin/blob/master/doc/release-notes/release-notes-0.15.2.md\r\n\r\nPreferably use the above download link, not the below links to download the source tarball, as the release tarballs are generated deterministically whereas GitHub's are not.\r\n",
+      "author_username": "laanwj"
+    },
+    {
+      "name": "Bitcoin Core 0.16.3",
+      "published_at": "2018-09-18T21:14:45Z",
+      "message": "Bitcoin Core version 0.16.3 is now available from:\r\n\r\nhttps://bitcoincore.org/bin/bitcoin-core-0.16.3/\r\n\r\nFor the release notes please see the git repository:\r\n\r\nhttps://github.com/bitcoin/bitcoin/blob/master/doc/release-notes/release-notes-0.16.3.md\r\n\r\nPreferably use the above download link, not the below links to download the source tarball, as the release tarballs are generated deterministically whereas GitHub's are not.\r\n",
+      "author_username": "laanwj"
+    },
+    {
+      "name": "Bitcoin Core 0.16.2",
+      "published_at": "2018-07-29T17:04:40Z",
+      "message": "Bitcoin Core version 0.16.2 is now available from:\r\n\r\nhttps://bitcoincore.org/bin/bitcoin-core-0.16.2/\r\n\r\nFor the release notes please see the git repository:\r\n\r\nhttps://github.com/bitcoin/bitcoin/blob/master/doc/release-notes/release-notes-0.16.2.md\r\n\r\nPreferably use the above download link, not the below links to download the source tarball, as the release tarballs are generated deterministically whereas GitHub's are not.\r\n",
+      "author_username": "laanwj"
+    },
+    {
+      "name": "Bitcoin Core 0.16.1",
+      "published_at": "2018-06-15T16:35:36Z",
+      "message": "Bitcoin Core version 0.16.1 is now available from:\r\n\r\nhttps://bitcoincore.org/bin/bitcoin-core-0.16.1/\r\n\r\nFor the release notes please see the git repository:\r\n\r\nhttps://github.com/bitcoin/bitcoin/blob/master/doc/release-notes/release-notes-0.16.1.md\r\n\r\nPreferably use the above download link, not the below links to download the source tarball, as the release tarballs are generated deterministically whereas GitHub's are not.\r\n",
+      "author_username": "laanwj"
+    },
+    {
+      "name": "Bitcoin Core 0.16.0",
+      "published_at": "2018-02-26T11:59:39Z",
+      "message": "Bitcoin Core version 0.16.0 is now available from:\r\n\r\nhttps://bitcoin.org/bin/bitcoin-core-0.16.0/\r\n\r\nand\r\n\r\nhttps://bitcoincore.org/bin/bitcoin-core-0.16.0/\r\n\r\nFor the release notes please see the git repository:\r\n\r\nhttps://github.com/bitcoin/bitcoin/blob/master/doc/release-notes/release-notes-0.16.0.md\r\n\r\nPreferably use the above download link, not the below links to download the source tarball, as the release tarballs are generated deterministically whereas GitHub's are not.",
+      "author_username": "laanwj"
+    },
+    {
+      "name": "Bitcoin Core 0.15.1",
+      "published_at": "2017-11-11T14:24:25Z",
+      "message": "Bitcoin Core version 0.15.1 is now available from:\r\n\r\nhttps://bitcoin.org/bin/bitcoin-core-0.15.1/\r\n\r\nand\r\n\r\nhttps://bitcoincore.org/bin/bitcoin-core-0.15.1/\r\n\r\nFor the release notes please see the git repository:\r\n\r\nhttps://github.com/bitcoin/bitcoin/blob/master/doc/release-notes/release-notes-0.15.1.md\r\n\r\nPreferably use the above download link, not the below links to download the source tarball, as the release tarballs are generated deterministically and GitHub's are not.",
+      "author_username": "laanwj"
+    },
+    {
+      "name": "Bitcoin Core 0.15.0.1",
+      "published_at": "2017-09-19T13:05:50Z",
+      "message": "Bitcoin Core version 0.15.0.1 is now available from:\r\n\r\nhttps://bitcoin.org/bin/bitcoin-core-0.15.0.1/\r\n\r\nand\r\n\r\nhttps://bitcoincore.org/bin/bitcoin-core-0.15.0.1/\r\n\r\nFor the release notes please see the git repository:\r\n\r\nhttps://github.com/bitcoin/bitcoin/blob/master/doc/release-notes/release-notes-0.15.0.1.md\r\n\r\nPreferably use the above download link, not the below links to download the source tarball, as the release tarballs are generated deterministically and GitHub's are not.",
+      "author_username": "laanwj"
+    },
+    {
+      "name": "Bitcoin Core 0.15.0",
+      "published_at": "2017-09-14T14:34:57Z",
+      "message": "Bitcoin Core version 0.15.0 is now available from:\r\n\r\nhttps://bitcoin.org/bin/bitcoin-core-0.15.0/\r\n\r\nand\r\n\r\nhttps://bitcoincore.org/bin/bitcoin-core-0.15.0/\r\n\r\nFor the release notes please see the git repository:\r\n\r\nhttps://github.com/bitcoin/bitcoin/blob/master/doc/release-notes/release-notes-0.15.0.md\r\n\r\nPreferably use the above download link, not the below links to download the source tarball, as the release tarballs are generated deterministically and GitHubs's are not.",
+      "author_username": "laanwj"
+    },
+    {
+      "name": "Bitcoin Core 0.14.2",
+      "published_at": "2017-06-18T08:42:37Z",
+      "message": "Bitcoin Core version 0.14.2 is now available from:\r\n\r\n  https://bitcoin.org/bin/bitcoin-core-0.14.2/\r\n\r\nFor the release notes please see the git repository:\r\n\r\nhttps://github.com/bitcoin/bitcoin/blob/master/doc/release-notes/release-notes-0.14.2.md",
+      "author_username": "MarcoFalke"
+    },
+    {
+      "name": "Bitcoin Core 0.14.1",
+      "published_at": "2017-04-22T14:19:24Z",
+      "message": "Bitcoin Core version 0.14.1 is now available from:\r\n\r\n  https://bitcoin.org/bin/bitcoin-core-0.14.1/\r\n\r\nFor the release notes please see the git repository:\r\n\r\nhttps://github.com/bitcoin/bitcoin/blob/master/doc/release-notes/release-notes-0.14.1.md",
+      "author_username": "laanwj"
+    },
+    {
+      "name": "Bitcoin Core v0.14.0",
+      "published_at": "2017-03-08T15:20:25Z",
+      "message": "Bitcoin Core version 0.14.0 is now available from:\r\n\r\n  https://bitcoin.org/bin/bitcoin-core-0.14.0/\r\n\r\nFor the release notes please see the git repository:\r\n\r\nhttps://github.com/bitcoin/bitcoin/blob/master/doc/release-notes/release-notes-0.14.0.md",
+      "author_username": "laanwj"
+    },
+    {
+      "name": "Bitcoin Core v0.13.2",
+      "published_at": "2017-01-03T10:48:14Z",
+      "message": "Bitcoin Core version 0.13.2 is now available from:\n\n  https://bitcoin.org/bin/bitcoin-core-0.13.2/\n\nFor the release notes please see the git repository:\n\nhttps://github.com/bitcoin/bitcoin/blob/master/doc/release-notes/release-notes-0.13.2.md\n",
+      "author_username": "laanwj"
+    },
+    {
+      "name": "Bitcoin Core v0.13.1",
+      "published_at": "2016-11-01T19:23:04Z",
+      "message": "Bitcoin Core version 0.13.1 is now available from:\n\n  https://bitcoin.org/bin/bitcoin-core-0.13.1/\n\nFor the release notes please see the git repository:\n\nhttps://github.com/bitcoin/bitcoin/blob/master/doc/release-notes/release-notes-0.13.1.md\n",
+      "author_username": "sipa"
+    },
+    {
+      "name": "Bitcoin Core v0.13.0",
+      "published_at": "2016-11-01T19:25:12Z",
+      "message": "Bitcoin Core version 0.13.0 is now available from:\n\n  https://bitcoin.org/bin/bitcoin-core-0.13.0/\n\nFor the release notes please see the git repository:\n\nhttps://github.com/bitcoin/bitcoin/blob/master/doc/release-notes/release-notes-0.13.0.md\n",
+      "author_username": "sipa"
+    },
+    {
+      "name": "Bitcoin Core v0.12.1",
+      "published_at": "2016-11-01T19:25:45Z",
+      "message": "Bitcoin Core version 0.12.1 is now available from:\n\n  https://bitcoin.org/bin/bitcoin-core-0.12.1/\n\nFor the release notes please see the git repository:\n\nhttps://github.com/bitcoin/bitcoin/blob/master/doc/release-notes/release-notes-0.12.1.md\n",
+      "author_username": "sipa"
+    },
+    {
+      "name": "Bitcoin Core v0.12.0",
+      "published_at": "2016-11-01T19:26:15Z",
+      "message": "Bitcoin Core version 0.12.0 is now available from:\n\n  https://bitcoin.org/bin/bitcoin-core-0.12.0/\n\nFor the release notes please see the git repository:\n\nhttps://github.com/bitcoin/bitcoin/blob/master/doc/release-notes/release-notes-0.12.0.md\n",
+      "author_username": "sipa"
+    }
+  ]
+}
