@@ -1,10 +1,12 @@
 import re
 from core.api_crawler import ApiCrawler
+from core.dependency_crawler import DependencyCrawler
 
 
 class DataCollector:
     def __init__(self):
         self.api_crawler = ApiCrawler()
+        self.dependency_crawler = DependencyCrawler()
 
     @staticmethod
     def clean_url(url):
@@ -101,6 +103,8 @@ class DataCollector:
         return pulls
 
     def collect(self, repo_url):
+        dependents = self.dependency_crawler.crawl_dependencies(repo_url)
+
         repo_response = self.api_crawler.get_repo_data(repo_url)
 
         issues_response = self.api_crawler.call_url(
@@ -143,5 +147,7 @@ class DataCollector:
             "commits": commits,
             "releases": releases,
             "issues": issues,
-            "pulls": pulls
+            "pulls": pulls,
+            "dependent_repos": dependents["repos"],
+            "dependent_packages": dependents["packages"]
         }
