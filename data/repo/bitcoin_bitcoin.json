@@ -1,10 +1,10 @@
 {
   "repo_full_name": "bitcoin/bitcoin",
   "license": "MIT License",
-  "open_issues_count": 949,
-  "forks": 32498,
-  "stars": 64517,
-  "watchers": 64517,
+  "open_issues_count": 952,
+  "forks": 32500,
+  "stars": 64519,
+  "watchers": 64519,
   "topics": [
     "bitcoin",
     "c-plus-plus",
@@ -12,16 +12,16 @@
     "cryptography",
     "p2p"
   ],
-  "pushed_at": "2022-06-06T13:17:40Z",
+  "pushed_at": "2022-06-07T02:07:20Z",
   "organization": "bitcoin",
   "contributors": [
     {
       "username": "laanwj",
-      "contributions": 7314
+      "contributions": 7315
     },
     {
       "username": "MarcoFalke",
-      "contributions": 5174
+      "contributions": 5175
     },
     {
       "username": "fanquake",
@@ -140,6 +140,24 @@
   "commits": [
     {
       "author": {
+        "name": "laanwj",
+        "email": "126646+laanwj@users.noreply.github.com",
+        "date": "2022-06-06T15:10:17Z"
+      },
+      "message": "Merge bitcoin/bitcoin#25220: rpc: fix incorrect warning for address type p2sh-segwit in createmultisig\n\n3a9b9bb38e653c8ff7220b9af6e337a90c2c22dc test: ensure createmultisig and addmultisigaddress are not returning any warning for expected cases (brunoerg)\neaf6f630c0190c634b5f1c85f749437f4209cc36 rpc: fix inappropriate warning for address type p2sh-segwit in createmultisig and addmultisigaddress (brunoerg)\n\nPull request description:\n\n  Fixes #25127\n\n  If there are any uncompressed keys when calling `AddAndGetMultisigDestination`, it will just default to a legacy address regardless of the chosen `address_type`. So, #23113 added a warnings field which will warn the user why their address format is different.\n\n  However, when creating a multisig (p2sh-segwit), it is returning an inappropriate warning, because when getting the output type from destination (`OutputTypeFromDestination`), it returns `ScriptHash` for both legacy and `P2SH_SEGWIT`. So, since `P2SH_SEGWIT` is different from `ScriptHash`, it returns the warning:\n  https://github.com/bitcoin/bitcoin/blob/192d639a6b1bd0feaa52e6ea4e63e33982704c32/src/rpc/output_script.cpp#L166-L169\n\n  So, to avoid this mistake I changed `OutputTypeFromDestination` to `descriptor->GetOutputType()` to get the appropriate output type.\n\nACKs for top commit:\n  jonatack:\n    ACK 3a9b9bb38e653c8ff7220b9af6e337a90c2c22dc\n  laanwj:\n    Code review ACK 3a9b9bb38e653c8ff7220b9af6e337a90c2c22dc\n\nTree-SHA512: 49f717479c2b8906277e7591ddd4747f7961c2d5c77494b5124045de9036a4277d46b9ad99279d51f0c4484284c445f1e1d3c55c49bbf0716741bad426a89369",
+      "pushed_at": "2022-06-06T15:13:22Z"
+    },
+    {
+      "author": {
+        "name": "MacroFake",
+        "email": "falke.marco@gmail.com",
+        "date": "2022-06-06T13:54:28Z"
+      },
+      "message": "Merge bitcoin/bitcoin#25276: doc: Fix typo in importdescriptors\n\n210cd592cd67e05434c87d6f95e2d8d5b7abc800 doc: Fix typo in importdescriptors (Kolby Moroz Liebl)\n\nPull request description:\n\nACKs for top commit:\n  1440000bytes:\n    ACK https://github.com/bitcoin/bitcoin/pull/25276/commits/210cd592cd67e05434c87d6f95e2d8d5b7abc800\n  LarryRuane:\n    ACK 210cd592cd67e05434c87d6f95e2d8d5b7abc800\n  brunoerg:\n    crACK 210cd592cd67e05434c87d6f95e2d8d5b7abc800\n\nTree-SHA512: 39ff9777b05abc1a68c8c3e646e00b0672838696c567c582d0492baa753863231447fd8439bd41cd8a8b8ba752299b032e839c8862c02faa2bdc207a9a7a8540",
+      "pushed_at": "2022-06-06T13:54:30Z"
+    },
+    {
+      "author": {
         "name": "MacroFake",
         "email": "falke.marco@gmail.com",
         "date": "2022-06-06T13:15:08Z"
@@ -149,12 +167,39 @@
     },
     {
       "author": {
+        "name": "brunoerg",
+        "email": "brunoely.gc@gmail.com",
+        "date": "2022-05-25T18:17:12Z"
+      },
+      "message": "test: ensure createmultisig and addmultisigaddress are not returning any warning for expected cases",
+      "pushed_at": "2022-06-06T12:46:42Z"
+    },
+    {
+      "author": {
+        "name": "brunoerg",
+        "email": "brunoely.gc@gmail.com",
+        "date": "2022-05-25T18:16:22Z"
+      },
+      "message": "rpc: fix inappropriate warning for address type p2sh-segwit in createmultisig and addmultisigaddress",
+      "pushed_at": "2022-06-06T12:46:02Z"
+    },
+    {
+      "author": {
         "name": "Hennadii Stepanov",
         "email": "32963518+hebasto@users.noreply.github.com",
         "date": "2022-06-05T12:13:13Z"
       },
       "message": "Merge bitcoin-core/gui#614: Drop no longer supported Android architecture\n\nd1b7bcbca2be4eae3bf7572a8343a3bd69ce61a9 qt: Drop no longer supported Android architecture (Hennadii Stepanov)\n\nPull request description:\n\n  The `i686-linux-android` arch support has been dropped since bitcoin/bitcoin#23744.\n\nACKs for top commit:\n  katesalazar:\n    ACK d1b7bcbca2be4eae3bf7572a8343a3bd69ce61a9\n  icota:\n    utACK https://github.com/bitcoin-core/gui/pull/614/commits/d1b7bcbca2be4eae3bf7572a8343a3bd69ce61a9\n  prusnak:\n    Approach ACK d1b7bcbca2be4eae3bf7572a8343a3bd69ce61a9\n\nTree-SHA512: 13689ec8c63c92b9a52a3c25edc35536b8e51ff583f57c45b168515f928d020d6bb85d03db9efd8d5efd57b944dfd313a89f5ff8a52f99982ccc8d9671f6e7a9",
       "pushed_at": "2022-06-05T12:29:29Z"
+    },
+    {
+      "author": {
+        "name": "Kolby Moroz Liebl",
+        "email": "31669092+KolbyML@users.noreply.github.com",
+        "date": "2022-06-05T00:48:30Z"
+      },
+      "message": "doc: Fix typo in importdescriptors",
+      "pushed_at": "2022-06-05T00:48:30Z"
     },
     {
       "author": {
@@ -362,51 +407,6 @@
       },
       "message": "test: Set maxfeerate=0 in MiniWallet sendrawtransaction()",
       "pushed_at": "2022-06-01T15:07:05Z"
-    },
-    {
-      "author": {
-        "name": "fanquake",
-        "email": "fanquake@gmail.com",
-        "date": "2022-06-01T14:57:34Z"
-      },
-      "message": "Merge bitcoin/bitcoin#25244: build: pass bdb cppflags only where needed\n\n46a890960e4b07e5aec479aa8e07e9c34ce68aee build: pass bdb cppflags only where needed (fanquake)\n\nPull request description:\n\n  Move bdb cppflags out of the catch-all `BITCOIN_INCLUDES`, and pass them\n  only where they are needed, which is in libbitcoin_node/wallet and the tests.\n\nACKs for top commit:\n  hebasto:\n    ACK 46a890960e4b07e5aec479aa8e07e9c34ce68aee\n\nTree-SHA512: ac639bf88be1c21c5205bb14c983330c72c37f17ec4c15a746a86c54dd83853e3d75802eff48c4647484b07c1bae943ca2c3d61d2a8b0bed07d9c5b4a71dcec4",
-      "pushed_at": "2022-06-01T14:57:52Z"
-    },
-    {
-      "author": {
-        "name": "MacroFake",
-        "email": "falke.marco@gmail.com",
-        "date": "2022-06-01T14:39:36Z"
-      },
-      "message": "Merge bitcoin/bitcoin#25087: test: use MiniWallet for feature_dbcrash.py\n\n1da5e45725a49a867f7ce16fb37b138ad329d132 test: use MiniWallet for feature_dbcrash.py (Sebastian Falbesoner)\n\nPull request description:\n\n  This PR enables one more of the non-wallet functional tests (feature_dbcrash.py) to be run even with the Bitcoin Code wallet by using the MiniWallet instead, as proposed in https://github.com/bitcoin/bitcoin/issues/20078.\n\nACKs for top commit:\n  laanwj:\n    Code review ACK 1da5e45725a49a867f7ce16fb37b138ad329d132\n  brunoerg:\n    crACK 1da5e45725a49a867f7ce16fb37b138ad329d132\n\nTree-SHA512: 75ee9a32fd1451254004797d695d18032bd0fcb66ebd88cf737e147e43812525f6e884ec05fcc4f76f566dc71174c8ed7347bcdce16567db6511746ae64cead0",
-      "pushed_at": "2022-06-01T14:43:49Z"
-    },
-    {
-      "author": {
-        "name": "laanwj",
-        "email": "126646+laanwj@users.noreply.github.com",
-        "date": "2022-06-01T11:29:25Z"
-      },
-      "message": "Merge bitcoin/bitcoin#24416: doc: Avoid ADL for function calls\n\n52a797bfe5ced4329f2272be417c35730ec8839f doc: Avoid ADL for function calls (Hennadii Stepanov)\n\nPull request description:\n\n  It happened two times recently, when [ADL](https://en.cppreference.com/w/cpp/language/adl) popped up unexpectedly and brought some confusion:\n  - https://github.com/bitcoin/bitcoin/pull/24338/files#r805989994\n  > Any idea why this even compiles?\n  - https://www.erisian.com.au/bitcoin-core-dev/log-2022-02-18.html#l-51:\n  > 2022-02-18T03:24:14  \\<dongcarl\\> Does anyone know why this compiles? https://github.com/dongcarl/bitcoin/commit/6d3d2caa3751f968f72d19fa84f001472fb26749\n  > 2022-02-18T03:24:14  \\<dongcarl\\> GetUTXOStatsWithHasher and MakeUTXOHasher are both in the `kernel::` namespace and I never added a `using` declaration on top...\n  > 2022-02-18T03:25:53  \\<sipa\\> https://en.cppreference.com/w/cpp/language/adl ?\n\n  Let's document our intention to avoid similar cases in the future.\n\nACKs for top commit:\n  laanwj:\n    Anyhow, ACK 52a797bfe5ced4329f2272be417c35730ec8839f, there is no need to hold merge up on this, documenting it is a step forward.\n\nTree-SHA512: f52688b5d8f6130302185206ec6ea4731b099a75294ea2d477901a52d6d58473e3427e658aea408c140c2824c37a0399ec7376aded2a91197895ea52d51f0018",
-      "pushed_at": "2022-06-01T11:32:48Z"
-    },
-    {
-      "author": {
-        "name": "laanwj",
-        "email": "126646+laanwj@users.noreply.github.com",
-        "date": "2022-06-01T06:38:44Z"
-      },
-      "message": "Merge bitcoin/bitcoin#25165: doc: Explain squashing with merge commits\n\nfa2d226ac950d8b4f7e430732f13ad408c504745 doc: Explain squashing with merge commits (MacroFake)\n\nPull request description:\n\n  This avoids having to explain it in each thread\n\nACKs for top commit:\n  laanwj:\n    ACK fa2d226ac950d8b4f7e430732f13ad408c504745\n\nTree-SHA512: e1533ee7c0ab0101c78aaebed97dc889b5eb941cf4c2dfbabbb5f0ec1bb7b1313a1a2e2405235d68c761f039373cebac67ce691a72c820a9252429d50c1ac7d5",
-      "pushed_at": "2022-06-01T06:39:08Z"
-    },
-    {
-      "author": {
-        "name": "MacroFake",
-        "email": "falke.marco@gmail.com",
-        "date": "2022-06-01T06:12:14Z"
-      },
-      "message": "Merge bitcoin/bitcoin#25259: test: check pre-segwit peer error in `getblockfrompeer` RPC\n\n7d0f67a0d5b94395e29fe240326824cd3be8ae9b test: check pre-segwit peer error in `getblockfrompeer` RPC (Sebastian Falbesoner)\n\nPull request description:\n\n  This PR adds missing test coverage for the `getblockfrompeer` RPC, in the case that a block is tried to be fetched from a pre-segwit peer (i.e. a peer that doesn't signal the service bit `NODE_WITNESS`):\n\n  https://github.com/bitcoin/bitcoin/blob/d4d9daff7ab60a9f0cae0a34f86be0bb497f62f4/src/net_processing.cpp#L1564-L1565\n\nACKs for top commit:\n  MarcoFalke:\n    cr ACK 7d0f67a0d5b94395e29fe240326824cd3be8ae9b\n\nTree-SHA512: bc330820686fe45577e7a53d66e2a0b339ee3ca4ef348ba3cab0a78ed891e47b3651cadf3c6c3c35d1e9a95779df010322c12d37b36700e828f6064ae35842fd",
-      "pushed_at": "2022-06-01T06:12:16Z"
     }
   ],
   "releases": [
@@ -589,6 +589,655 @@
       "published_at": "2016-11-01T19:26:15Z",
       "message": "Bitcoin Core version 0.12.0 is now available from:\n\n  https://bitcoin.org/bin/bitcoin-core-0.12.0/\n\nFor the release notes please see the git repository:\n\nhttps://github.com/bitcoin/bitcoin/blob/master/doc/release-notes/release-notes-0.12.0.md\n",
       "author_username": "sipa"
+    }
+  ],
+  "issues": [
+    {
+      "title": "[kernel 3a/n] Decouple `CTxMemPool` from `ArgsManager`",
+      "pull_request": "https://api.github.com/repos/bitcoin/bitcoin/pulls/25290",
+      "state": "open",
+      "created_at": "2022-06-07T01:59:02Z",
+      "closed_at": null,
+      "comments": []
+    },
+    {
+      "title": "test: implement 'bech32m' mode for `getnewdestination()` helper",
+      "pull_request": "https://api.github.com/repos/bitcoin/bitcoin/pulls/25289",
+      "state": "open",
+      "created_at": "2022-06-07T00:13:17Z",
+      "closed_at": null,
+      "comments": []
+    },
+    {
+      "title": "test: Reliably don't start itself (lint-all.py runs all tests twice)",
+      "pull_request": "https://api.github.com/repos/bitcoin/bitcoin/pulls/25288",
+      "state": "open",
+      "created_at": "2022-06-06T17:18:32Z",
+      "closed_at": null,
+      "comments": [
+        {
+          "user": "theStack",
+          "created_at": "2022-06-06T19:44:57Z",
+          "author_association": "CONTRIBUTOR",
+          "body": "Concept ACK. Good catch!"
+        }
+      ]
+    },
+    {
+      "title": "logging: threshold log level",
+      "pull_request": "https://api.github.com/repos/bitcoin/bitcoin/pulls/25287",
+      "state": "open",
+      "created_at": "2022-06-06T17:01:08Z",
+      "closed_at": null,
+      "comments": [
+        {
+          "user": "jonatack",
+          "created_at": "2022-06-06T17:12:23Z",
+          "author_association": "MEMBER",
+          "body": "Concept ACK. I'm glad to see a category-specific config option. These should probably be added to the logging RPC as well in a follow-up.  "
+        }
+      ]
+    },
+    {
+      "title": "scripted-diff: remove duplicate categories from LogPrint output",
+      "pull_request": "https://api.github.com/repos/bitcoin/bitcoin/pulls/25286",
+      "state": "open",
+      "created_at": "2022-06-06T16:48:16Z",
+      "closed_at": null,
+      "comments": [
+        {
+          "user": "klementtan",
+          "created_at": "2022-06-06T17:14:39Z",
+          "author_association": "CONTRIBUTOR",
+          "body": "crACK d40550d725fa7afd6916510164bbaa95e3ec0a5f\r\n\r\nManually verified that the script correctly remove duplicate categories from LogPrint output"
+        }
+      ]
+    },
+    {
+      "title": "Add AutoFile without ser-type and ser-version and use it where possible",
+      "pull_request": "https://api.github.com/repos/bitcoin/bitcoin/pulls/25285",
+      "state": "open",
+      "created_at": "2022-06-06T16:04:53Z",
+      "closed_at": null,
+      "comments": [
+        {
+          "user": "laanwj",
+          "created_at": "2022-06-06T16:36:20Z",
+          "author_association": "MEMBER",
+          "body": "Concept ACK"
+        }
+      ]
+    },
+    {
+      "title": "[WIP] consensus: Remove dependency on net (BIP 155 / ADDRV2_FORMAT)",
+      "pull_request": "https://api.github.com/repos/bitcoin/bitcoin/pulls/25284",
+      "state": "open",
+      "created_at": "2022-06-06T13:04:43Z",
+      "closed_at": null,
+      "comments": [
+        {
+          "user": "vasild",
+          "created_at": "2022-06-06T13:44:20Z",
+          "author_association": "CONTRIBUTOR",
+          "body": "Concept ACK"
+        }
+      ]
+    },
+    {
+      "title": "Bugfix: configure: Define default for use_libevent",
+      "pull_request": "https://api.github.com/repos/bitcoin/bitcoin/pulls/25282",
+      "state": "open",
+      "created_at": "2022-06-05T21:49:40Z",
+      "closed_at": null,
+      "comments": [
+        {
+          "user": "DrahtBot",
+          "created_at": "2022-06-06T07:03:00Z",
+          "author_association": "CONTRIBUTOR",
+          "body": "<!--e57a25ab6845829454e8d69fc972939a-->\n\nThe following sections might be updated with supplementary metadata relevant to reviewers and maintainers.\n\n<!--174a7506f384e20aa4161008e828411d-->\n### Conflicts\nReviewers, this pull request conflicts with the following ones:\n\n* [#24291](https://github.com/bitcoin/bitcoin/pull/24291) (build: Remove negated --enable-fuzz checks from build system by MarcoFalke)\n\nIf you consider this pull request important, please also help to review the conflicting pull requests. Ideally, start with the one that should be merged first."
+        }
+      ]
+    },
+    {
+      "title": "build: Remove unused `LIBBITCOIN_KERNEL` variable",
+      "pull_request": "https://api.github.com/repos/bitcoin/bitcoin/pulls/25281",
+      "state": "open",
+      "created_at": "2022-06-05T19:45:32Z",
+      "closed_at": null,
+      "comments": []
+    },
+    {
+      "title": "[refactor] use ITEMS macro to unify NetMsgType, allNetMessageTypes lists",
+      "pull_request": "https://api.github.com/repos/bitcoin/bitcoin/pulls/25275",
+      "state": "open",
+      "created_at": "2022-06-04T18:51:24Z",
+      "closed_at": null,
+      "comments": [
+        {
+          "user": "DrahtBot",
+          "created_at": "2022-06-05T05:22:41Z",
+          "author_association": "CONTRIBUTOR",
+          "body": "<!--e57a25ab6845829454e8d69fc972939a-->\n\nThe following sections might be updated with supplementary metadata relevant to reviewers and maintainers.\n\n<!--174a7506f384e20aa4161008e828411d-->\n### Conflicts\nReviewers, this pull request conflicts with the following ones:\n\n* [#23443](https://github.com/bitcoin/bitcoin/pull/23443) (p2p: Erlay support signaling by naumenkogs)\n\nIf you consider this pull request important, please also help to review the conflicting pull requests. Ideally, start with the one that should be merged first."
+        }
+      ]
+    },
+    {
+      "title": "[WIP] add free list to unordered map",
+      "pull_request": "https://api.github.com/repos/bitcoin/bitcoin/pulls/25274",
+      "state": "open",
+      "created_at": "2022-06-03T20:50:42Z",
+      "closed_at": null,
+      "comments": [
+        {
+          "user": "DrahtBot",
+          "created_at": "2022-06-04T00:44:55Z",
+          "author_association": "CONTRIBUTOR",
+          "body": "<!--e57a25ab6845829454e8d69fc972939a-->\n\nThe following sections might be updated with supplementary metadata relevant to reviewers and maintainers.\n\n<!--174a7506f384e20aa4161008e828411d-->\n### Conflicts\nReviewers, this pull request conflicts with the following ones:\n\n* [#17487](https://github.com/bitcoin/bitcoin/pull/17487) (coins: allow write to disk without cache drop by jamesob)\n* [#9384](https://github.com/bitcoin/bitcoin/pull/9384) (CCoinsViewCache code cleanup & deduplication by ryanofsky)\n\nIf you consider this pull request important, please also help to review the conflicting pull requests. Ideally, start with the one that should be merged first."
+        },
+        {
+          "user": "martinus",
+          "created_at": "2022-06-04T06:03:12Z",
+          "author_association": "CONTRIBUTOR",
+          "body": "I'm not sure if that approach will be a net benefit. One of the main advantages of the allocator in #22702 is that not every node has to be malloced', saving the considerable memory overhead. I think the only way to get rid of the many `std::unordered_map` allocations is to use a custom allocator.\r\n\r\nAnother approach to hold on to the memory that should in theory do all what's done in #22702 is to just use `std::pmr::unsynchronized_pool_resource`: That memory resource has a pool which holds on to its memory until it is destroyed, exactly like my node_allocator. I don't know though how its implemented or what memory overhead individual allocations have. https://en.cppreference.com/w/cpp/memory/unsynchronized_pool_resource\r\n\r\nUsage would be relatively simple, like so:\r\n\r\n```cpp\r\nusing CCoinsMap = std::pmr::unordered_map<COutPoint, CCoinsCacheEntry, SaltedOutpointHasher>;\r\n\r\nauto options = std::pmr::pool_options();\r\noptions.largest_required_pool_block = 128; // TODO no idea what good values are\r\noptions.max_blocks_per_chunk = 262144 / options.largest_required_pool_block;  // TODO no idea what good values are\r\n\r\nauto mr = std::pmr::unsynchronized_pool_resource();\r\nauto map = CCoinsMap{0, SaltedOutpointHasher{}, std::equal_to<COutPoint>{}, &mr};\r\n```\r\n\r\nI did some rudimentary benchmarking with this, but this seemed to be even slower than a plain `std::unordered_map` so I didn't follow this more closely."
+        }
+      ]
+    },
+    {
+      "title": "wallet: Pass through transaction locktime and preset input sequences and scripts to CreateTransaction",
+      "pull_request": "https://api.github.com/repos/bitcoin/bitcoin/pulls/25273",
+      "state": "open",
+      "created_at": "2022-06-03T18:58:15Z",
+      "closed_at": null,
+      "comments": [
+        {
+          "user": "DrahtBot",
+          "created_at": "2022-06-04T00:47:56Z",
+          "author_association": "CONTRIBUTOR",
+          "body": "<!--e57a25ab6845829454e8d69fc972939a-->\n\nThe following sections might be updated with supplementary metadata relevant to reviewers and maintainers.\n\n<!--174a7506f384e20aa4161008e828411d-->\n### Conflicts\nReviewers, this pull request conflicts with the following ones:\n\n* [#25218](https://github.com/bitcoin/bitcoin/pull/25218) (refactor: introduce generic 'Result' classes and connect them to CreateTransaction and GetNewDestination by furszy)\n* [#25118](https://github.com/bitcoin/bitcoin/pull/25118) (wallet: unify \u201callow/block other inputs\u201c concept by furszy)\n* [#24897](https://github.com/bitcoin/bitcoin/pull/24897) ([Draft / POC] Silent Payments by w0xlt)\n* [#24649](https://github.com/bitcoin/bitcoin/pull/24649) (wallet: do not count wallet utxos as external by S3RK)\n* [#24128](https://github.com/bitcoin/bitcoin/pull/24128) (wallet: BIP 326 sequence based anti-fee-snipe for taproot inputs by MarcoFalke)\n* [#23475](https://github.com/bitcoin/bitcoin/pull/23475) (wallet: add config to prioritize a solution that doesn't create change in coin selection by brunoerg)\n* [#21283](https://github.com/bitcoin/bitcoin/pull/21283) (Implement BIP 370 PSBTv2 by achow101)\n\nIf you consider this pull request important, please also help to review the conflicting pull requests. Ideally, start with the one that should be merged first."
+        }
+      ]
+    },
+    {
+      "title": "wallet: guard and alert about a wallet invalid state during chain sync",
+      "pull_request": "https://api.github.com/repos/bitcoin/bitcoin/pulls/25272",
+      "state": "open",
+      "created_at": "2022-06-03T14:06:15Z",
+      "closed_at": null,
+      "comments": [
+        {
+          "user": "furszy",
+          "created_at": "2022-06-03T15:53:26Z",
+          "author_association": "CONTRIBUTOR",
+          "body": "Update:\r\nAdded test coverage for it in the first commit. Showing how the wallet can end up in the invalid state. The second commit corrects it with the proposed solution."
+        },
+        {
+          "user": "DrahtBot",
+          "created_at": "2022-06-04T15:58:07Z",
+          "author_association": "CONTRIBUTOR",
+          "body": "<!--e57a25ab6845829454e8d69fc972939a-->\n\nThe following sections might be updated with supplementary metadata relevant to reviewers and maintainers.\n\n<!--174a7506f384e20aa4161008e828411d-->\n### Conflicts\nReviewers, this pull request conflicts with the following ones:\n\n* [#24897](https://github.com/bitcoin/bitcoin/pull/24897) ([Draft / POC] Silent Payments by w0xlt)\n\nIf you consider this pull request important, please also help to review the conflicting pull requests. Ideally, start with the one that should be merged first."
+        },
+        {
+          "user": "jonatack",
+          "created_at": "2022-06-06T15:11:53Z",
+          "author_association": "MEMBER",
+          "body": "Concept ACK"
+        },
+        {
+          "user": "furszy",
+          "created_at": "2022-06-06T19:31:29Z",
+          "author_association": "CONTRIBUTOR",
+          "body": "Thanks for the feedback!\r\n\r\nApplied the following changes:\r\n\r\n1) Moved `dynamic_cast` to `static_cast`.\r\n2) Set same default value for \"m_pass\" field in both classes `FailDatabase` and `FailBatch`.\r\n3) Shorted the commit subject."
+        }
+      ]
+    },
+    {
+      "title": "Allow groups of accounts to access the RPC cookie file",
+      "pull_request": null,
+      "state": "open",
+      "created_at": "2022-06-02T23:44:41Z",
+      "closed_at": null,
+      "comments": [
+        {
+          "user": "1440000bytes",
+          "created_at": "2022-06-03T02:12:34Z",
+          "author_association": "CONTRIBUTOR",
+          "body": "Have you tried RPC whitelists? https://github.com/bitcoin/bitcoin/pull/12763"
+        },
+        {
+          "user": "alevchuk",
+          "created_at": "2022-06-03T05:07:54Z",
+          "author_association": "NONE",
+          "body": "> Have you tried RPC whitelists? #12763\r\n\r\nWhitelists use rpcauth which sends the password in clear text to the server https://github.com/bitcoin/bitcoin/blob/0de36941eca1bff91420dd878eb097db2b1a596c/src/httprpc.cpp#L130\r\n\r\nThis unlike the cookie file is not resilient to [server spoofing attack](https://github.com/Kixunil/security_writings/blob/master/cookie_files.md). Basically if my grafana Linux user gets compromised then it can get the password for every bitcoin RPC user. \r\n\r\n\r\nIn my case both RPC users have a wide variety of methods that need to be available, so locking down with rpc whitelists would not help much. I would not choose that over keeping random users out.  \r\n\r\n\r\n"
+        },
+        {
+          "user": "ryanofsky",
+          "created_at": "2022-06-03T17:12:11Z",
+          "author_association": "CONTRIBUTOR",
+          "body": "Agree it would be useful to set permissions on the cookie file, and this would be a simple feature to implement. But I don't think it would be right to say rpcauth is less secure than cookie auth.\r\n\r\nThe main advantage cookies have over RPC passwords is just their convenience. Other than being generated randomly each restart, they don't provide extra security. You could write a script to randomly generate new passwords for grafana each time bitcoin is restarted to get the same effect as using a cookie.\r\n\r\nRPC passwords also have an advantage over cookies because they are hashed. So if an attacker manages to get read access to the bitcoin directory, they can't easily use password hashes to connect to the server, while they could straightforwardly use the cookie file to connect.\r\n\r\nAlso it looks like depending on your setup you may be able control permissions of the cookie file in current versions of bitcoind by running `umask 0027` and passing `-sysperms` argument."
+        },
+        {
+          "user": "darosior",
+          "created_at": "2022-06-06T12:25:31Z",
+          "author_association": "MEMBER",
+          "body": "I agree this would be nice to have. I personally use ACLs to achieve the same."
+        }
+      ]
+    },
+    {
+      "title": "wallet: re-activate the not triggered  \"AmountWithFeeExceedsBalance\" error",
+      "pull_request": "https://api.github.com/repos/bitcoin/bitcoin/pulls/25269",
+      "state": "open",
+      "created_at": "2022-06-02T14:17:15Z",
+      "closed_at": null,
+      "comments": [
+        {
+          "user": "DrahtBot",
+          "created_at": "2022-06-02T16:36:51Z",
+          "author_association": "CONTRIBUTOR",
+          "body": "<!--e57a25ab6845829454e8d69fc972939a-->\n\nThe following sections might be updated with supplementary metadata relevant to reviewers and maintainers.\n\n<!--174a7506f384e20aa4161008e828411d-->\n### Conflicts\nReviewers, this pull request conflicts with the following ones:\n\n* [#25218](https://github.com/bitcoin/bitcoin/pull/25218) (refactor: introduce generic 'Result' classes and connect them to CreateTransaction and GetNewDestination by furszy)\n* [#25183](https://github.com/bitcoin/bitcoin/pull/25183) (rpc: Segwit-only inputs option for fundrawtransaction by aureleoules)\n* [#25118](https://github.com/bitcoin/bitcoin/pull/25118) (wallet: unify \u201callow/block other inputs\u201c concept by furszy)\n* [#25005](https://github.com/bitcoin/bitcoin/pull/25005) (wallet: remove extra wtx lookup in 'AvailableCoins' + several code cleanups. by furszy)\n* [#24699](https://github.com/bitcoin/bitcoin/pull/24699) (wallet: Improve AvailableCoins performance by reducing duplicated operations by achow101)\n\nIf you consider this pull request important, please also help to review the conflicting pull requests. Ideally, start with the one that should be merged first."
+        }
+      ]
+    },
+    {
+      "title": "refactor: Introduce EvictionManager",
+      "pull_request": "https://api.github.com/repos/bitcoin/bitcoin/pulls/25268",
+      "state": "open",
+      "created_at": "2022-06-02T12:34:15Z",
+      "closed_at": null,
+      "comments": [
+        {
+          "user": "DrahtBot",
+          "created_at": "2022-06-02T16:39:54Z",
+          "author_association": "CONTRIBUTOR",
+          "body": "<!--e57a25ab6845829454e8d69fc972939a-->\n\nThe following sections might be updated with supplementary metadata relevant to reviewers and maintainers.\n\n<!--174a7506f384e20aa4161008e828411d-->\n### Conflicts\nReviewers, this pull request conflicts with the following ones:\n\n* [#25203](https://github.com/bitcoin/bitcoin/pull/25203) (logging: update to severity-based logging by jonatack)\n* [#24970](https://github.com/bitcoin/bitcoin/pull/24970) (net processing: Move cleanSubVer, fPreferredDownload and nLocalHostNonce to Peer by jnewbery)\n* [#24170](https://github.com/bitcoin/bitcoin/pull/24170) (p2p, rpc: Manual block-relay-only connections with addnode by mzumsande)\n* [#23443](https://github.com/bitcoin/bitcoin/pull/23443) (p2p: Erlay support signaling by naumenkogs)\n* [#21878](https://github.com/bitcoin/bitcoin/pull/21878) (Make all networking code mockable by vasild)\n\nIf you consider this pull request important, please also help to review the conflicting pull requests. Ideally, start with the one that should be merged first."
+        },
+        {
+          "user": "jnewbery",
+          "created_at": "2022-06-03T10:20:43Z",
+          "author_association": "MEMBER",
+          "body": "Concept ACK. Very nice!"
+        }
+      ]
+    },
+    {
+      "title": "Setting torcontrol overrides proxy address",
+      "pull_request": null,
+      "state": "open",
+      "created_at": "2022-06-01T23:28:24Z",
+      "closed_at": null,
+      "comments": []
+    },
+    {
+      "title": "build: pass minisketch cppflags only where needed",
+      "pull_request": "https://api.github.com/repos/bitcoin/bitcoin/pulls/25263",
+      "state": "open",
+      "created_at": "2022-06-01T15:13:22Z",
+      "closed_at": null,
+      "comments": []
+    },
+    {
+      "title": "rpc: fetch multiple headers in getblockheader()",
+      "pull_request": "https://api.github.com/repos/bitcoin/bitcoin/pulls/25261",
+      "state": "open",
+      "created_at": "2022-06-01T14:02:56Z",
+      "closed_at": null,
+      "comments": [
+        {
+          "user": "MarcoFalke",
+          "created_at": "2022-06-01T15:57:36Z",
+          "author_association": "MEMBER",
+          "body": "Please squash your commits according to https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#squashing-commits"
+        },
+        {
+          "user": "JeremyRubin",
+          "created_at": "2022-06-01T18:02:50Z",
+          "author_association": "CONTRIBUTOR",
+          "body": "I think it makes sense to do count = 0 as a single entity, and >= 1 as an array, or otherwise make an additional as_array bool param to control the output type.\r\n\r\nOtherwise the \"type instability\" is difficult to deal with for downstream consumers of the API. E.g., consider the code for https://docs.rs/bitcoincore-rpc/latest/src/bitcoincore_rpc/client.rs.html#337-341 ."
+        },
+        {
+          "user": "natanleung",
+          "created_at": "2022-06-01T18:54:32Z",
+          "author_association": "NONE",
+          "body": "> I think it makes sense to do count = 0 as a single entity, and >= 1 as an array, or otherwise make an additional as_array bool param to control the output type.\r\n> \r\n> Otherwise the \"type instability\" is difficult to deal with for downstream consumers of the API. E.g., consider the code for https://docs.rs/bitcoincore-rpc/latest/src/bitcoincore_rpc/client.rs.html#337-341 .\r\n\r\nThanks for the reply. Note that there is no regression impact because all preexisting functionality is intact. Ultimately, it is an optional parameter which can be ignored.\r\n\r\nTo me, `count = 0` is a bit counterintuitive. And as mentioned above, the REST call also interprets `count = 0` as invalid, assuming we are aiming to emulate an improved version of the REST functionality in RPC.\r\n\r\nFrom the old PR, it would appear that we are tending away from the unformatted (concatenated) output in new implementation. If this is indeed the case, then such an additional parameter does not make seem useful.\r\n\r\n@MarcoFalke Do you have any input on this? And are any further updates to the PR needed at this point? All CI checks have passed. Thanks."
+        },
+        {
+          "user": "MarcoFalke",
+          "created_at": "2022-06-01T18:57:20Z",
+          "author_association": "MEMBER",
+          "body": "What about:\r\n\r\n* null -> \"flat\" reply\r\n* int -> array reply"
+        },
+        {
+          "user": "natanleung",
+          "created_at": "2022-06-01T19:39:02Z",
+          "author_association": "NONE",
+          "body": "> What about:\r\n> \r\n> * null -> \"flat\" reply\r\n> * int -> array reply\r\n\r\n@JeremyRubin's suggestion has been implemented. I think I misunderstood the difference between `count = 0` and `count = 1` in terms of the \"type instability\". It makes sense to me now.\r\n\r\nAs you've denoted, this is now resolved such that:\r\n`count = 0` -> \"flat\" reply\r\n`count > 0` -> array reply\r\n\r\nLet me know if any other changes are still needed. Thanks."
+        },
+        {
+          "user": "JeremyRubin",
+          "created_at": "2022-06-01T20:34:20Z",
+          "author_association": "CONTRIBUTOR",
+          "body": "Yeah that makes sense. Null = flat works too. Idea isn't to concatenate anything, but rather to provide support for legacy behavior and something that matches the REST API. Since 0 is invalid in rest, all valid queries in JSON will match all valid rest queries, and legacy count=0 queries will return flat.\r\n\r\nIf we were to do a breaking API change, i'd say *always* return array :)"
+        },
+        {
+          "user": "natanleung",
+          "created_at": "2022-06-03T04:45:11Z",
+          "author_association": "NONE",
+          "body": "@MarcoFalke I believe that we have finalized the design. I have also updated the description. Let me know if there is anything else that is needed for this PR. Thanks."
+        }
+      ]
+    },
+    {
+      "title": "Parallel compact block download",
+      "pull_request": null,
+      "state": "open",
+      "created_at": "2022-05-31T21:08:24Z",
+      "closed_at": null,
+      "comments": []
+    },
+    {
+      "title": "Move minRelayTxFee to policy/settings",
+      "pull_request": "https://api.github.com/repos/bitcoin/bitcoin/pulls/25254",
+      "state": "open",
+      "created_at": "2022-05-31T13:08:29Z",
+      "closed_at": null,
+      "comments": [
+        {
+          "user": "DrahtBot",
+          "created_at": "2022-06-01T10:21:43Z",
+          "author_association": "CONTRIBUTOR",
+          "body": "<!--e57a25ab6845829454e8d69fc972939a-->\n\nThe following sections might be updated with supplementary metadata relevant to reviewers and maintainers.\n\n<!--174a7506f384e20aa4161008e828411d-->\n### Conflicts\nReviewers, this pull request conflicts with the following ones:\n\n* [#24513](https://github.com/bitcoin/bitcoin/pull/24513) (CChainState -> Chainstate by jamesob)\n* [#23076](https://github.com/bitcoin/bitcoin/pull/23076) (Pass CFeeRate and CTxMemPool in-params by reference to const by jonatack)\n* [#17786](https://github.com/bitcoin/bitcoin/pull/17786) (refactor: Nuke policy/fees->mempool circular dependencies by hebasto)\n\nIf you consider this pull request important, please also help to review the conflicting pull requests. Ideally, start with the one that should be merged first."
+        }
+      ]
+    },
+    {
+      "title": "Consolidate Windows ASLR workarounds for upstream secp256k1 changes",
+      "pull_request": "https://api.github.com/repos/bitcoin/bitcoin/pulls/25251",
+      "state": "open",
+      "created_at": "2022-05-30T19:18:06Z",
+      "closed_at": null,
+      "comments": [
+        {
+          "user": "hebasto",
+          "created_at": "2022-05-30T19:25:22Z",
+          "author_association": "MEMBER",
+          "body": "Maybe the oldest `binutils` used for cross-compiling [do not require](https://github.com/bitcoin/bitcoin/pull/23360#issuecomment-952562953) any ASLR workarounds?"
+        },
+        {
+          "user": "fanquake",
+          "created_at": "2022-05-30T19:30:39Z",
+          "author_association": "MEMBER",
+          "body": "> Maybe the oldest binutils used for cross-compiling https://github.com/bitcoin/bitcoin/pull/23360#issuecomment-952562953 any ASLR workarounds?\r\n\r\nI've outlined in the commits which versions of binutils are affected by the bug, and that includes, for example, the version shipped with Ubuntu Focal, which is almost certainly still used to cross-compile WIndows binaries. The comment you've linked too, says to update the doc to mention that version that includes the fix, which has been done here."
+        },
+        {
+          "user": "hebasto",
+          "created_at": "2022-05-30T19:32:59Z",
+          "author_association": "MEMBER",
+          "body": "Concept ACK."
+        },
+        {
+          "user": "laanwj",
+          "created_at": "2022-05-31T07:11:01Z",
+          "author_association": "MEMBER",
+          "body": "Concept ACK\r\n\r\nThis is more elegant. Exporting only the entry point makes much more sense than exporting secp256k1 symbols. Although it can't hurt (no one dynloads a binary, i'd hope!), it could be a risk for shared libraries where the symbols could interfere.\r\n\r\nEdit:\r\n\r\n> Although it can't hurt (no one dynloads a binary, i'd hope!)\r\n\r\nWait, I'm wrong here. It could hurt, if we dynamically link against libraries that (directly or indirectly) use another version of secp256k1. I remember we had a problem like this with OpenSSL a long time ago where our statically linked version of OpenSSL conflicted with the one Qt was using. It's quite an edge case though :smile:  But it's always better to err on the safe side, I mean."
+        },
+        {
+          "user": "fanquake",
+          "created_at": "2022-05-31T07:47:34Z",
+          "author_association": "MEMBER",
+          "body": "cc also @real-or-random @jonasnick "
+        },
+        {
+          "user": "theuni",
+          "created_at": "2022-05-31T13:40:49Z",
+          "author_association": "MEMBER",
+          "body": "ACK with or without the [suggestion here](https://github.com/bitcoin/bitcoin/pull/25251#discussion_r885277583)."
+        },
+        {
+          "user": "theuni",
+          "created_at": "2022-05-31T13:43:35Z",
+          "author_association": "MEMBER",
+          "body": "\r\n> Wait, I'm wrong here. It could hurt, if we dynamically link against libraries that (directly or indirectly) use another version of secp256k1. I remember we had a problem like this with OpenSSL a long time ago where our statically linked version of OpenSSL conflicted with the one Qt was using. It's quite an edge case though \ud83d\ude04 But it's always better to err on the safe side, I mean.\r\n\r\nThanks so much for this reminder, I had forgotten about this edge case! Very helpful to keep in mind."
+        },
+        {
+          "user": "DrahtBot",
+          "created_at": "2022-06-02T12:44:38Z",
+          "author_association": "CONTRIBUTOR",
+          "body": "<!--9cd9c72976c961c55c7acef8f6ba82cd-->\n### Guix builds\n\n| File | commit 5f65afff9c4c735d607a69fc3d18b4ecadbf3ba9<br>(master) | commit f37b9af9646c15277257c5ac089bf648661f8bb6<br>(master and this pull) |\n|--|--|--|\n| SHA256SUMS.part | [`48da0fae4f3c828d...`](https://drahtbot.space/guix/bitcoin/bitcoin/5f65afff9c4c735d607a69fc3d18b4ecadbf3ba9/SHA256SUMS.part) | [`70479e95e6f3b20e...`](https://drahtbot.space/guix/bitcoin/bitcoin/f37b9af9646c15277257c5ac089bf648661f8bb6/SHA256SUMS.part) |\n| *-aarch64-linux-gnu-debug.tar.gz | [`c05d18eb70d358f2...`](https://drahtbot.space/guix/bitcoin/bitcoin/5f65afff9c4c735d607a69fc3d18b4ecadbf3ba9/bitcoin-5f65afff9c4c-aarch64-linux-gnu-debug.tar.gz) | [`08939403fb4691a1...`](https://drahtbot.space/guix/bitcoin/bitcoin/f37b9af9646c15277257c5ac089bf648661f8bb6/bitcoin-f37b9af9646c-aarch64-linux-gnu-debug.tar.gz) |\n| *-aarch64-linux-gnu.tar.gz | [`0194c2ddbba2e739...`](https://drahtbot.space/guix/bitcoin/bitcoin/5f65afff9c4c735d607a69fc3d18b4ecadbf3ba9/bitcoin-5f65afff9c4c-aarch64-linux-gnu.tar.gz) | [`3ebff07596d4c6d7...`](https://drahtbot.space/guix/bitcoin/bitcoin/f37b9af9646c15277257c5ac089bf648661f8bb6/bitcoin-f37b9af9646c-aarch64-linux-gnu.tar.gz) |\n| *-arm-linux-gnueabihf-debug.tar.gz | [`849bd24df6cf4bc1...`](https://drahtbot.space/guix/bitcoin/bitcoin/5f65afff9c4c735d607a69fc3d18b4ecadbf3ba9/bitcoin-5f65afff9c4c-arm-linux-gnueabihf-debug.tar.gz) | [`74b23e24601531df...`](https://drahtbot.space/guix/bitcoin/bitcoin/f37b9af9646c15277257c5ac089bf648661f8bb6/bitcoin-f37b9af9646c-arm-linux-gnueabihf-debug.tar.gz) |\n| *-arm-linux-gnueabihf.tar.gz | [`c4e68fae5594ba3a...`](https://drahtbot.space/guix/bitcoin/bitcoin/5f65afff9c4c735d607a69fc3d18b4ecadbf3ba9/bitcoin-5f65afff9c4c-arm-linux-gnueabihf.tar.gz) | [`cbe3285b4d34aae4...`](https://drahtbot.space/guix/bitcoin/bitcoin/f37b9af9646c15277257c5ac089bf648661f8bb6/bitcoin-f37b9af9646c-arm-linux-gnueabihf.tar.gz) |\n| *-arm64-apple-darwin-unsigned.dmg | [`c9a2bc0f65b20bae...`](https://drahtbot.space/guix/bitcoin/bitcoin/5f65afff9c4c735d607a69fc3d18b4ecadbf3ba9/bitcoin-5f65afff9c4c-arm64-apple-darwin-unsigned.dmg) | [`7d4937ae4fe1417d...`](https://drahtbot.space/guix/bitcoin/bitcoin/f37b9af9646c15277257c5ac089bf648661f8bb6/bitcoin-f37b9af9646c-arm64-apple-darwin-unsigned.dmg) |\n| *-arm64-apple-darwin-unsigned.tar.gz | [`a8fedf69253c2295...`](https://drahtbot.space/guix/bitcoin/bitcoin/5f65afff9c4c735d607a69fc3d18b4ecadbf3ba9/bitcoin-5f65afff9c4c-arm64-apple-darwin-unsigned.tar.gz) | [`77c7f2934488ca28...`](https://drahtbot.space/guix/bitcoin/bitcoin/f37b9af9646c15277257c5ac089bf648661f8bb6/bitcoin-f37b9af9646c-arm64-apple-darwin-unsigned.tar.gz) |\n| *-arm64-apple-darwin.tar.gz | [`f948368bf3f9a49d...`](https://drahtbot.space/guix/bitcoin/bitcoin/5f65afff9c4c735d607a69fc3d18b4ecadbf3ba9/bitcoin-5f65afff9c4c-arm64-apple-darwin.tar.gz) | [`7af293a446285c41...`](https://drahtbot.space/guix/bitcoin/bitcoin/f37b9af9646c15277257c5ac089bf648661f8bb6/bitcoin-f37b9af9646c-arm64-apple-darwin.tar.gz) |\n| *-powerpc64-linux-gnu-debug.tar.gz | [`fbc766009041f2c6...`](https://drahtbot.space/guix/bitcoin/bitcoin/5f65afff9c4c735d607a69fc3d18b4ecadbf3ba9/bitcoin-5f65afff9c4c-powerpc64-linux-gnu-debug.tar.gz) | [`b905fef776ccb0f8...`](https://drahtbot.space/guix/bitcoin/bitcoin/f37b9af9646c15277257c5ac089bf648661f8bb6/bitcoin-f37b9af9646c-powerpc64-linux-gnu-debug.tar.gz) |\n| *-powerpc64-linux-gnu.tar.gz | [`1d2b389ecae24861...`](https://drahtbot.space/guix/bitcoin/bitcoin/5f65afff9c4c735d607a69fc3d18b4ecadbf3ba9/bitcoin-5f65afff9c4c-powerpc64-linux-gnu.tar.gz) | [`a6a4ca404a3001fc...`](https://drahtbot.space/guix/bitcoin/bitcoin/f37b9af9646c15277257c5ac089bf648661f8bb6/bitcoin-f37b9af9646c-powerpc64-linux-gnu.tar.gz) |\n| *-powerpc64le-linux-gnu-debug.tar.gz | [`e78a4d47f8dbffec...`](https://drahtbot.space/guix/bitcoin/bitcoin/5f65afff9c4c735d607a69fc3d18b4ecadbf3ba9/bitcoin-5f65afff9c4c-powerpc64le-linux-gnu-debug.tar.gz) | [`6b1eb2e875de34d5...`](https://drahtbot.space/guix/bitcoin/bitcoin/f37b9af9646c15277257c5ac089bf648661f8bb6/bitcoin-f37b9af9646c-powerpc64le-linux-gnu-debug.tar.gz) |\n| *-powerpc64le-linux-gnu.tar.gz | [`5ab6c4a6f99988e7...`](https://drahtbot.space/guix/bitcoin/bitcoin/5f65afff9c4c735d607a69fc3d18b4ecadbf3ba9/bitcoin-5f65afff9c4c-powerpc64le-linux-gnu.tar.gz) | [`0744d171fd5a6224...`](https://drahtbot.space/guix/bitcoin/bitcoin/f37b9af9646c15277257c5ac089bf648661f8bb6/bitcoin-f37b9af9646c-powerpc64le-linux-gnu.tar.gz) |\n| *-riscv64-linux-gnu-debug.tar.gz | [`68e49fd2dfdbe98b...`](https://drahtbot.space/guix/bitcoin/bitcoin/5f65afff9c4c735d607a69fc3d18b4ecadbf3ba9/bitcoin-5f65afff9c4c-riscv64-linux-gnu-debug.tar.gz) | [`9c19f76c2d7a3fb8...`](https://drahtbot.space/guix/bitcoin/bitcoin/f37b9af9646c15277257c5ac089bf648661f8bb6/bitcoin-f37b9af9646c-riscv64-linux-gnu-debug.tar.gz) |\n| *-riscv64-linux-gnu.tar.gz | [`173139662bd4331e...`](https://drahtbot.space/guix/bitcoin/bitcoin/5f65afff9c4c735d607a69fc3d18b4ecadbf3ba9/bitcoin-5f65afff9c4c-riscv64-linux-gnu.tar.gz) | [`0755081d8bb62909...`](https://drahtbot.space/guix/bitcoin/bitcoin/f37b9af9646c15277257c5ac089bf648661f8bb6/bitcoin-f37b9af9646c-riscv64-linux-gnu.tar.gz) |\n| *-win64-debug.zip | [`270501950de1c55e...`](https://drahtbot.space/guix/bitcoin/bitcoin/5f65afff9c4c735d607a69fc3d18b4ecadbf3ba9/bitcoin-5f65afff9c4c-win64-debug.zip) | [`9a1e6da8c0fb1623...`](https://drahtbot.space/guix/bitcoin/bitcoin/f37b9af9646c15277257c5ac089bf648661f8bb6/bitcoin-f37b9af9646c-win64-debug.zip) |\n| *-win64-setup-unsigned.exe | [`21839223fa33e86f...`](https://drahtbot.space/guix/bitcoin/bitcoin/5f65afff9c4c735d607a69fc3d18b4ecadbf3ba9/bitcoin-5f65afff9c4c-win64-setup-unsigned.exe) | [`32cda3faeaf4d2f6...`](https://drahtbot.space/guix/bitcoin/bitcoin/f37b9af9646c15277257c5ac089bf648661f8bb6/bitcoin-f37b9af9646c-win64-setup-unsigned.exe) |\n| *-win64-unsigned.tar.gz | [`aeeabbb72b47c843...`](https://drahtbot.space/guix/bitcoin/bitcoin/5f65afff9c4c735d607a69fc3d18b4ecadbf3ba9/bitcoin-5f65afff9c4c-win64-unsigned.tar.gz) | [`385f6009a3e3b35c...`](https://drahtbot.space/guix/bitcoin/bitcoin/f37b9af9646c15277257c5ac089bf648661f8bb6/bitcoin-f37b9af9646c-win64-unsigned.tar.gz) |\n| *-win64.zip | [`6c8ac0a41980c34a...`](https://drahtbot.space/guix/bitcoin/bitcoin/5f65afff9c4c735d607a69fc3d18b4ecadbf3ba9/bitcoin-5f65afff9c4c-win64.zip) | [`a1cbbefddabf8a84...`](https://drahtbot.space/guix/bitcoin/bitcoin/f37b9af9646c15277257c5ac089bf648661f8bb6/bitcoin-f37b9af9646c-win64.zip) |\n| *-x86_64-apple-darwin-unsigned.dmg | [`890caf48cb5f2710...`](https://drahtbot.space/guix/bitcoin/bitcoin/5f65afff9c4c735d607a69fc3d18b4ecadbf3ba9/bitcoin-5f65afff9c4c-x86_64-apple-darwin-unsigned.dmg) | [`78b52e782cf5d4cc...`](https://drahtbot.space/guix/bitcoin/bitcoin/f37b9af9646c15277257c5ac089bf648661f8bb6/bitcoin-f37b9af9646c-x86_64-apple-darwin-unsigned.dmg) |\n| *-x86_64-apple-darwin-unsigned.tar.gz | [`df51da5073165fb0...`](https://drahtbot.space/guix/bitcoin/bitcoin/5f65afff9c4c735d607a69fc3d18b4ecadbf3ba9/bitcoin-5f65afff9c4c-x86_64-apple-darwin-unsigned.tar.gz) | [`371a02ebc90425b2...`](https://drahtbot.space/guix/bitcoin/bitcoin/f37b9af9646c15277257c5ac089bf648661f8bb6/bitcoin-f37b9af9646c-x86_64-apple-darwin-unsigned.tar.gz) |\n| *-x86_64-apple-darwin.tar.gz | [`3c9b643d7f4a6ac5...`](https://drahtbot.space/guix/bitcoin/bitcoin/5f65afff9c4c735d607a69fc3d18b4ecadbf3ba9/bitcoin-5f65afff9c4c-x86_64-apple-darwin.tar.gz) | [`b843c49fffde7ed0...`](https://drahtbot.space/guix/bitcoin/bitcoin/f37b9af9646c15277257c5ac089bf648661f8bb6/bitcoin-f37b9af9646c-x86_64-apple-darwin.tar.gz) |\n| *-x86_64-linux-gnu-debug.tar.gz | [`e9f5d54fa3f1941b...`](https://drahtbot.space/guix/bitcoin/bitcoin/5f65afff9c4c735d607a69fc3d18b4ecadbf3ba9/bitcoin-5f65afff9c4c-x86_64-linux-gnu-debug.tar.gz) | [`3b50b3fdf46dcf19...`](https://drahtbot.space/guix/bitcoin/bitcoin/f37b9af9646c15277257c5ac089bf648661f8bb6/bitcoin-f37b9af9646c-x86_64-linux-gnu-debug.tar.gz) |\n| *-x86_64-linux-gnu.tar.gz | [`543dce95f9a0b243...`](https://drahtbot.space/guix/bitcoin/bitcoin/5f65afff9c4c735d607a69fc3d18b4ecadbf3ba9/bitcoin-5f65afff9c4c-x86_64-linux-gnu.tar.gz) | [`91e165b95a998da2...`](https://drahtbot.space/guix/bitcoin/bitcoin/f37b9af9646c15277257c5ac089bf648661f8bb6/bitcoin-f37b9af9646c-x86_64-linux-gnu.tar.gz) |\n| *.tar.gz | [`a2f9f253d3373fda...`](https://drahtbot.space/guix/bitcoin/bitcoin/5f65afff9c4c735d607a69fc3d18b4ecadbf3ba9/bitcoin-5f65afff9c4c.tar.gz) | [`0bea692881f30f14...`](https://drahtbot.space/guix/bitcoin/bitcoin/f37b9af9646c15277257c5ac089bf648661f8bb6/bitcoin-f37b9af9646c.tar.gz) |\n| guix_build.log | [`b2bbb782674ee4ee...`](https://drahtbot.space/guix/bitcoin/bitcoin/5f65afff9c4c735d607a69fc3d18b4ecadbf3ba9/guix_build.log) | [`563fb647a42c0175...`](https://drahtbot.space/guix/bitcoin/bitcoin/f37b9af9646c15277257c5ac089bf648661f8bb6/guix_build.log) |\n| guix_build.log.diff |  | [`08ef072b38bb0ad3...`](https://drahtbot.space/guix/bitcoin/bitcoin/f37b9af9646c15277257c5ac089bf648661f8bb6/guix_build.log.diff) |\n\n"
+        }
+      ]
+    },
+    {
+      "title": "refactor: Add LIFETIMEBOUND / -Wdangling-gsl to Assert()",
+      "pull_request": "https://api.github.com/repos/bitcoin/bitcoin/pulls/25248",
+      "state": "open",
+      "created_at": "2022-05-30T14:29:20Z",
+      "closed_at": null,
+      "comments": [
+        {
+          "user": "jonatack",
+          "created_at": "2022-05-30T14:33:01Z",
+          "author_association": "MEMBER",
+          "body": "Concept ACK"
+        },
+        {
+          "user": "DrahtBot",
+          "created_at": "2022-05-31T04:29:11Z",
+          "author_association": "CONTRIBUTOR",
+          "body": "<!--e57a25ab6845829454e8d69fc972939a-->\n\nThe following sections might be updated with supplementary metadata relevant to reviewers and maintainers.\n\n<!--174a7506f384e20aa4161008e828411d-->\n### Conflicts\nReviewers, this pull request conflicts with the following ones:\n\n* [#25112](https://github.com/bitcoin/bitcoin/pull/25112) (util: Move error message formatting of NonFatalCheckError to cpp by MarcoFalke)\n\nIf you consider this pull request important, please also help to review the conflicting pull requests. Ideally, start with the one that should be merged first."
+        }
+      ]
+    },
+    {
+      "title": "refactor: Remove no-op TIME_INIT on deser",
+      "pull_request": "https://api.github.com/repos/bitcoin/bitcoin/pulls/25245",
+      "state": "open",
+      "created_at": "2022-05-30T10:37:38Z",
+      "closed_at": null,
+      "comments": []
+    },
+    {
+      "title": "test: autogenerate bash completion",
+      "pull_request": "https://api.github.com/repos/bitcoin/bitcoin/pulls/25243",
+      "state": "open",
+      "created_at": "2022-05-30T09:33:05Z",
+      "closed_at": null,
+      "comments": [
+        {
+          "user": "fanquake",
+          "created_at": "2022-05-30T09:47:27Z",
+          "author_association": "MEMBER",
+          "body": "Thanks for picking this up. Did you re-use any code from #18606? A lot of the changes are very similar to the changes there, except for different whitespace, class names, copyright dates etc. If so, cherry-picking so that the original author is preserved is appropriate. "
+        },
+        {
+          "user": "laanwj",
+          "created_at": "2022-05-30T12:59:08Z",
+          "author_association": "MEMBER",
+          "body": "Concept ACK on auto-generating what can be auto-generated. \r\n\r\nI'm not entirely sure about the approach of making this a functional test. It's clever, but also different from how other auto-generated files (the manual pages, the example bitcoin.conf introduced in #22235) are handled in the release process.\r\n\r\nOn the other hand by adding the check this forces the file on the branch to always be up-to-date so it doesn't need to be in the release process. That's also something."
+        },
+        {
+          "user": "suhailsaqan",
+          "created_at": "2022-05-30T13:48:36Z",
+          "author_association": "CONTRIBUTOR",
+          "body": "> Concept ACK on auto-generating what can be auto-generated.\r\n> \r\n> I'm not entirely sure about the approach of making this a functional test. It's clever, but also different from how other auto-generated files (the manual pages, the example bitcoin.conf introduced in #22235) are handled in the release process.\r\n> \r\n> On the other hand by adding the check this forces the file on the branch to always be up-to-date so it doesn't need to be in the release process. That's also something.\r\n\r\nLook at https://github.com/bitcoin/bitcoin/issues/17289#issue-513520983"
+        },
+        {
+          "user": "MarcoFalke",
+          "created_at": "2022-05-30T14:01:37Z",
+          "author_association": "MEMBER",
+          "body": "Yeah, I wrote that comment before bitcoin.conf moved over to auto-generation. A functional test is one way to achieve this, but this can also be achieved by an auto-generation script at release time."
+        },
+        {
+          "user": "laanwj",
+          "created_at": "2022-05-30T15:59:54Z",
+          "author_association": "MEMBER",
+          "body": "I mean you can argue this is a better solution, and that we should move to this for all three.\r\n(but for the manual pages it's difficult as they contain a version number as well as the current month)"
+        },
+        {
+          "user": "brunoerg",
+          "created_at": "2022-05-30T17:40:09Z",
+          "author_association": "CONTRIBUTOR",
+          "body": "From linter:\r\n```\r\nFile \"test/functional/tool_cli_completion.py\" contains a shebang line, but has the file permission 644 instead of the expected executable permission 755. Do \"chmod 755 test/functional/tool_cli_completion.py\"\r\n```"
+        },
+        {
+          "user": "suhailsaqan",
+          "created_at": "2022-05-31T00:25:08Z",
+          "author_association": "CONTRIBUTOR",
+          "body": "> I mean you can argue this is a better solution, and that we should move to this for all three. (but for the manual pages it's difficult as they contain a version number as well as the current month)\r\n\r\nThanks for the review @laanwj! Just wondering, do the three of them have to be done the same way? I don't know how I would do it the same way it was done in https://github.com/bitcoin/bitcoin/pull/22235."
+        },
+        {
+          "user": "suhailsaqan",
+          "created_at": "2022-06-03T05:03:19Z",
+          "author_association": "CONTRIBUTOR",
+          "body": "Squashed commits."
+        }
+      ]
+    },
+    {
+      "title": "wallet: 'CommitTransaction', remove extra wtx lookup and add exception for db write error",
+      "pull_request": "https://api.github.com/repos/bitcoin/bitcoin/pulls/25239",
+      "state": "open",
+      "created_at": "2022-05-29T18:03:29Z",
+      "closed_at": null,
+      "comments": [
+        {
+          "user": "achow101",
+          "created_at": "2022-06-02T15:30:54Z",
+          "author_association": "MEMBER",
+          "body": "ACK 57fb37c27599fc865f20b42a27bb9c227f384de3"
+        }
+      ]
+    },
+    {
+      "title": "GetExternalSigner(): fail if multiple signers are found",
+      "pull_request": "https://api.github.com/repos/bitcoin/bitcoin/pulls/25235",
+      "state": "open",
+      "created_at": "2022-05-28T19:00:52Z",
+      "closed_at": null,
+      "comments": [
+        {
+          "user": "amadeuszpawlik",
+          "created_at": "2022-05-28T19:21:38Z",
+          "author_association": "CONTRIBUTOR",
+          "body": "Resolves #22636"
+        },
+        {
+          "user": "amadeuszpawlik",
+          "created_at": "2022-05-31T16:17:53Z",
+          "author_association": "CONTRIBUTOR",
+          "body": "@Sjors thanks for the input, test added!"
+        },
+        {
+          "user": "Sjors",
+          "created_at": "2022-06-02T16:24:10Z",
+          "author_association": "MEMBER",
+          "body": "Looks good at first glance, will review and test in more detail."
+        },
+        {
+          "user": "achow101",
+          "created_at": "2022-06-02T17:02:07Z",
+          "author_association": "MEMBER",
+          "body": "ACK 8e121cb43cd34239567c148e167c48d93097d1dc\r\n\r\nIt would really be preferable to allow the user to choose which signer rather than forcing one at a time, but this is fine for now."
+        },
+        {
+          "user": "Rspigler",
+          "created_at": "2022-06-03T01:30:09Z",
+          "author_association": "NONE",
+          "body": "Concept ACK.\r\n\r\nAgree with @Sjors about the multisig additions we would have to make"
+        }
+      ]
+    },
+    {
+      "title": "bench: add benchmark for wallet 'AvailableCoins' function.",
+      "pull_request": "https://api.github.com/repos/bitcoin/bitcoin/pulls/25234",
+      "state": "open",
+      "created_at": "2022-05-28T14:19:40Z",
+      "closed_at": null,
+      "comments": [
+        {
+          "user": "DrahtBot",
+          "created_at": "2022-05-28T15:08:24Z",
+          "author_association": "CONTRIBUTOR",
+          "body": "<!--e57a25ab6845829454e8d69fc972939a-->\n\nThe following sections might be updated with supplementary metadata relevant to reviewers and maintainers.\n\n<!--174a7506f384e20aa4161008e828411d-->\n### Conflicts\nReviewers, this pull request conflicts with the following ones:\n\n* [#25218](https://github.com/bitcoin/bitcoin/pull/25218) (refactor: introduce generic 'Result' classes and connect them to CreateTransaction and GetNewDestination by furszy)\n\nIf you consider this pull request important, please also help to review the conflicting pull requests. Ideally, start with the one that should be merged first."
+        },
+        {
+          "user": "laanwj",
+          "created_at": "2022-06-01T20:59:02Z",
+          "author_association": "MEMBER",
+          "body": "Concept ACK on benchmarking these, however there have been recent complaints that the benchmarks are slow, and  I've noticed these add more fairly slow to run benchmarks:\r\n```\r\n|               ns/op |                op/s |    err% |     total | benchmark\r\n|--------------------:|--------------------:|--------:|----------:|:----------\r\n|      359,740,298.60 |                2.78 |    0.0% |     19.79 | `WalletAvailableCoinsMulti`\r\n|      289,759,212.20 |                3.45 |    0.0% |     15.93 | `WalletAvailableCoinsOnlyBech32`\r\n|      559,973,432.00 |                1.79 |    0.0% |     30.80 | `WalletAvailableCoinsOnlyBech32M`\r\n|      196,348,457.20 |                5.09 |    0.0% |     10.80 | `WalletAvailableCoinsOnlyLegacy`\r\n|      304,247,935.40 |                3.29 |    0.0% |     16.73 | `WalletAvailableCoinsOnlyP2SH_SEGWIT`\r\n```\r\nE.g. a total of 94 seconds to the runtime of `bench_bitcoin` with default settings.\r\n"
+        },
+        {
+          "user": "furszy",
+          "created_at": "2022-06-02T12:13:43Z",
+          "author_association": "CONTRIBUTOR",
+          "body": "Thanks laanwj for the review!\r\n\r\nIt's interesting to see other results, locally this are my results:\r\n\r\n```\r\n|               ns/op |                op/s |    err% |     total | benchmark\r\n|--------------------:|--------------------:|--------:|----------:|:----------\r\n|      132,289,908.40 |                7.56 |    0.3% |      7.27 | `WalletAvailableCoinsMulti`\r\n|      104,691,758.40 |                9.55 |    0.1% |      5.77 | `WalletAvailableCoinsOnlyBech32`\r\n|      196,688,875.00 |                5.08 |    0.2% |     10.82 | `WalletAvailableCoinsOnlyBech32M`\r\n|       70,386,791.80 |               14.21 |    0.2% |      3.88 | `WalletAvailableCoinsOnlyLegacy`\r\n|      111,477,558.20 |                8.97 |    0.1% |      6.14 | `WalletAvailableCoinsOnlyP2SH_SEGWIT`\r\n```\r\n\r\nBut let me do something, going to decrease the bench number of iterations from 5 to 2. It should decrease the total time by half."
+        },
+        {
+          "user": "furszy",
+          "created_at": "2022-06-02T12:24:22Z",
+          "author_association": "CONTRIBUTOR",
+          "body": "Done, decreased the number of iterations to 2. And this are the results:\r\n\r\n```\r\n|               ns/op |                op/s |    err% |     total | benchmark\r\n|--------------------:|--------------------:|--------:|----------:|:----------\r\n|      129,406,083.50 |                7.73 |    0.0% |      2.85 | `WalletAvailableCoinsMulti`\r\n|      105,704,646.00 |                9.46 |    0.2% |      2.33 | `WalletAvailableCoinsOnlyBech32`\r\n|      206,642,667.00 |                4.84 |    0.6% |      4.55 | `WalletAvailableCoinsOnlyBech32M`\r\n|       69,838,895.50 |               14.32 |    0.0% |      1.54 | `WalletAvailableCoinsOnlyLegacy`\r\n|      112,263,500.00 |                8.91 |    0.0% |      2.47 | `WalletAvailableCoinsOnlyP2SH_SEGWIT`\r\n```\r\n\r\nTotal time: ~15 seconds to run the 5 new benchmarks at most here now.\r\nPreviously, with 5 iterations, total time was ~40 seconds. So, you should see more or less a 40% total time decrease there as well."
+        },
+        {
+          "user": "furszy",
+          "created_at": "2022-06-02T12:44:39Z",
+          "author_association": "CONTRIBUTOR",
+          "body": "Aside from that, I think that a good future question to ask ourselves would be whether we want to always run all the benchmarks all the time or not. Because, sooner or later, as the project isn't going to stop growing, we could end up sacrificing accuracy, implementing not entirely real scenarios (skipping parts of the flow that is being benchmarked) in favor of decreasing the total bench time (there is where my comment in https://github.com/bitcoin/bitcoin/pull/24924#pullrequestreview-985000006 heads to for example).\r\n\r\nBut well, this is just me thinking out loud.. after #24924, the total bench time will be pretty decent to not have to worry about this for a while."
+        }
+      ]
+    },
+    {
+      "title": "rpc: Faster getblock API",
+      "pull_request": "https://api.github.com/repos/bitcoin/bitcoin/pulls/25232",
+      "state": "open",
+      "created_at": "2022-05-28T10:30:44Z",
+      "closed_at": null,
+      "comments": [
+        {
+          "user": "AaronDewes",
+          "created_at": "2022-05-28T18:41:01Z",
+          "author_association": "NONE",
+          "body": "> There is some way to ensure that this is a speed improvement that justify this refactoring?\r\n\r\nYes, I'm running a benchmark right now and will share the results. A good way to test is also trying to sync [Fulcrum](https://github.com/cculianu/Fulcrum), an Electrum server for a more real-world scenario where getblock is used a lot."
+        },
+        {
+          "user": "AaronDewes",
+          "created_at": "2022-05-29T08:33:29Z",
+          "author_association": "NONE",
+          "body": "I haven't found a good way to benchmark it except trying to sync Fulcrum and viewing the logs. Without this patch, it often exceeded the RPC work queue depth and was very slow. With this patch, it was much faster and didn't do that."
+        },
+        {
+          "user": "laanwj",
+          "created_at": "2022-05-30T09:20:19Z",
+          "author_association": "MEMBER",
+          "body": "Concept ACK on doing the block read from disk without locking, when pruning is not enabled. This seems quite low-hanging fruit for optimization. Assuming, there can't be a race condition between the block being *written* to disk and reading it?"
+        },
+        {
+          "user": "AaronDewes",
+          "created_at": "2022-05-31T05:44:29Z",
+          "author_association": "NONE",
+          "body": "I don't think there is, because the check if the block exists (`LookupBlockIndex`) happens with `cs_main` locked. So if it's not written before the lock is released, the reading won't happen."
+        }
+      ]
+    },
+    {
+      "title": "Memory leak via API listtransactions",
+      "pull_request": null,
+      "state": "open",
+      "created_at": "2022-05-27T18:25:54Z",
+      "closed_at": null,
+      "comments": [
+        {
+          "user": "mzumsande",
+          "created_at": "2022-05-29T18:35:39Z",
+          "author_association": "CONTRIBUTOR",
+          "body": "I tried to reproduce this (Ubuntu 20.04.4 LTS) with a large wallet but could not see a memory leak (also not with valgrind).\r\nWhat I did see is that repeated calls to `listtransactions` would lead to a step up in the memory claimed by bitcoind (as seen by top or pmap) that would not be released by the OS (enhanced by the fact that the memory for the large RPC response was reserved twice, fixed in #25237)\r\nBut after ~5 calls to `listtransactions` the memory of bitcoind would not increase any further for me with more listtransactions calls.\r\n"
+        },
+        {
+          "user": "CWDT250",
+          "created_at": "2022-05-29T21:28:26Z",
+          "author_association": "NONE",
+          "body": "My application is querying `listtransactions \"*\" 100000000` about once every 1 minute to retrieve a list of all transactions. The request takes about 10 seconds. After each call there is an increase in the consumed memory. Sometimes memory clearing is observed but this is useless and after 2-3 hours `bitcoind` dies with a kill signal from the OS.\r\n\r\nI also additionally checked after 5 or more calls the memory also grows by 100+ MB."
+        }
+      ]
     }
   ]
 }

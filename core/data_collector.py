@@ -66,6 +66,7 @@ class DataCollector:
     def get_issues_from_response(self, issues_response):
         issues = []
         for elem in issues_response:
+            labels = [label["name"] for label in elem["labels"]]
             comments_url = elem["comments_url"]
             comments_response = self.api_crawler.call_url(comments_url)
 
@@ -77,10 +78,27 @@ class DataCollector:
                     "state": elem["state"],
                     "created_at": elem["created_at"],
                     "closed_at": elem["closed_at"],
-                    "comments": comments
+                    "comments": comments,
+                    "labels": labels
                 }
             )
         return issues
+
+    @staticmethod
+    def get_pulls_from_response(pulls_response):
+        pulls = []
+        for elem in pulls_response:
+            pulls.append(
+                {
+                    "created_at": elem["created_at"],
+                    "updated_at": elem["updated_at"],
+                    "closed_at": elem["closed_at"],
+                    "merged_at": elem["merged_at"],
+                    "state": elem["state"],
+                    "author_association": elem["author_association"]
+                }
+            )
+        return pulls
 
     def collect(self, repo_url):
         repo_response = self.api_crawler.get_repo_data(repo_url)
@@ -89,6 +107,11 @@ class DataCollector:
             self.clean_url(repo_response["issues_url"])
         )
         issues = self.get_issues_from_response(issues_response)
+
+        pulls_response = self.api_crawler.call_url(
+            self.clean_url(repo_response["pulls_url"])
+        )
+        pulls = self.get_pulls_from_response(pulls_response)
 
         contributors_response = self.api_crawler.call_url(
             self.clean_url(repo_response["contributors_url"])
@@ -119,5 +142,6 @@ class DataCollector:
             "contributors_count": len(contributors),
             "commits": commits,
             "releases": releases,
-            "issues": issues
+            "issues": issues,
+            "pulls": pulls
         }
