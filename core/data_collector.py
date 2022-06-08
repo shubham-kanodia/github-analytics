@@ -65,6 +65,28 @@ class DataCollector:
             )
         return comments
 
+    def get_issues_response(self, url):
+        page_number = 1
+        per_page = 100
+
+        start = True
+        issues_collection = []
+        issues_response = []
+
+        while start or len(issues_response) >= per_page:
+            try:
+                issues_response = self.api_crawler.call_url(
+                    f"{self.clean_url(url)}?page={page_number}&per_page={per_page}&state=all"
+                )
+                issues_collection.extend(issues_response)
+                page_number += 1
+            except Exception:
+                issues_response = []
+
+            start = False
+
+        return issues_collection
+
     def get_issues_from_response(self, issues_response):
         issues = []
         for elem in issues_response:
@@ -76,7 +98,6 @@ class DataCollector:
             issues.append(
                 {
                     "title": elem.get("title"),
-                    "pull_request": elem.get("pull_request", {}).get("url"),
                     "state": elem.get("state"),
                     "created_at": elem.get("created_at"),
                     "closed_at": elem.get("closed_at"),
@@ -85,6 +106,18 @@ class DataCollector:
                 }
             )
         return issues
+
+    @staticmethod
+    def separate_issues_and_pulls(issues_response):
+        pulls = []
+        issues = []
+        for issue in issues_response:
+            if issue["html_url"].split("/")[-2] == "pull":
+                pulls.append(issue)
+            else:
+                issues.append(issue)
+
+        return pulls, issues
 
     @staticmethod
     def get_pulls_from_response(pulls_response):
@@ -107,9 +140,9 @@ class DataCollector:
 
         repo_response = self.api_crawler.get_repo_data(repo_url)
 
-        issues_response = self.api_crawler.call_url(
-            self.clean_url(repo_response.get("issues_url"))
-        )
+        issues_response = self.get_issues_response(repo_response.get("issues_url"))
+        _, issues_response = self.separate_issues_and_pulls(issues_response)
+
         issues = self.get_issues_from_response(issues_response)
 
         pulls_response = self.api_crawler.call_url(
@@ -138,7 +171,7 @@ class DataCollector:
             "open_issues_count": repo_response.get("open_issues_count"),
             "forks": repo_response.get("forks"),
             "stars": repo_response.get("stargazers_count"),
-            "watchers": repo_response.get("watchers"),
+            "watchers": repo_response.get("subscribers_count"),
             "topics": repo_response.get("topics"),
             "pushed_at": repo_response.get("pushed_at"),
             "organization": repo_response.get("organization", {}).get("login"),
