@@ -364,8 +364,6 @@ https://github.com/aragon/client
 https://github.com/aragon/aragon-apps
 https://github.com/maidsafe/sn_routing
 https://github.com/maidsafe/qp2p
-https://github.com/maidsafe/sn_node
-https://github.com/maidsafe/sn_client
 https://github.com/storj/storj
 https://github.com/storj/drpc
 https://github.com/storj/awesome-storj
@@ -520,8 +518,6 @@ https://github.com/vechain/thor
 https://github.com/helium/miner
 https://github.com/helium/blockchain-core
 https://github.com/helium/HIP
-https://github.com/helium/airship
-https://github.com/digibyte/digibyte
 https://github.com/iost-official/go-iost
 https://github.com/airalab/robonomics
 https://github.com/airalab/hs-web3
