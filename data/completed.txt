@@ -1,0 +1,8 @@
+https://github.com/bitcoin/bitcoin
+https://github.com/btcsuite/btcd
+https://github.com/bitcoinjs/bitcoinjs-lib
+https://github.com/bitcoinjs/bip39
+https://github.com/ElementsProject/lightning
+https://github.com/bitcoinj/bitcoinj
+https://github.com/btcsuite/btcwallet
+https://github.com/ElementsProject/elements
