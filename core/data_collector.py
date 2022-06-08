@@ -18,8 +18,8 @@ class DataCollector:
         for elem in contributors_response:
             contributors.append(
                 {
-                    "username": elem["login"],
-                    "contributions": elem["contributions"]
+                    "username": elem.get("login"),
+                    "contributions": elem.get("contributions")
                 }
             )
         return contributors
@@ -30,9 +30,9 @@ class DataCollector:
         for elem in commits_response:
             commits.append(
                 {
-                    "author": elem["commit"]["author"],
-                    "message": elem["commit"]["message"],
-                    "pushed_at": elem["commit"]["committer"]["date"]
+                    "author": elem.get("commit", {}).get("author"),
+                    "message": elem.get("commit", {}).get("message"),
+                    "pushed_at": elem.get("commit", {}).get("committer", {}).get("date")
                 }
             )
         return commits
@@ -43,10 +43,10 @@ class DataCollector:
         for elem in releases_response:
             releases.append(
                 {
-                    "name": elem["name"],
-                    "published_at": elem["published_at"],
+                    "name": elem.get("name"),
+                    "published_at": elem.get("published_at"),
                     "message": elem.get("body"),
-                    "author_username": elem["author"]["login"]
+                    "author_username": elem.get("author", {}).get("login")
                 }
             )
         return releases
@@ -57,10 +57,10 @@ class DataCollector:
         for elem in comments_response:
             comments.append(
                 {
-                    "user": elem["user"]["login"],
-                    "created_at": elem["created_at"],
-                    "author_association": elem["author_association"],
-                    "body": elem["body"]
+                    "user": elem.get("user", {}).get("login"),
+                    "created_at": elem.get("created_at"),
+                    "author_association": elem.get("author_association"),
+                    "body": elem.get("body")
                 }
             )
         return comments
@@ -68,18 +68,18 @@ class DataCollector:
     def get_issues_from_response(self, issues_response):
         issues = []
         for elem in issues_response:
-            labels = [label["name"] for label in elem["labels"]]
-            comments_url = elem["comments_url"]
+            labels = [label["name"] for label in elem.get("labels", [])]
+            comments_url = elem.get("comments_url")
             comments_response = self.api_crawler.call_url(comments_url)
 
             comments = self.get_comments_from_response(comments_response)
             issues.append(
                 {
-                    "title": elem["title"],
+                    "title": elem.get("title"),
                     "pull_request": elem.get("pull_request", {}).get("url"),
-                    "state": elem["state"],
-                    "created_at": elem["created_at"],
-                    "closed_at": elem["closed_at"],
+                    "state": elem.get("state"),
+                    "created_at": elem.get("created_at"),
+                    "closed_at": elem.get("closed_at"),
                     "comments": comments,
                     "labels": labels
                 }
@@ -92,12 +92,12 @@ class DataCollector:
         for elem in pulls_response:
             pulls.append(
                 {
-                    "created_at": elem["created_at"],
-                    "updated_at": elem["updated_at"],
-                    "closed_at": elem["closed_at"],
-                    "merged_at": elem["merged_at"],
-                    "state": elem["state"],
-                    "author_association": elem["author_association"]
+                    "created_at": elem.get("created_at"),
+                    "updated_at": elem.get("updated_at"),
+                    "closed_at": elem.get("closed_at"),
+                    "merged_at": elem.get("merged_at"),
+                    "state": elem.get("state"),
+                    "author_association": elem.get("author_association")
                 }
             )
         return pulls
@@ -108,46 +108,46 @@ class DataCollector:
         repo_response = self.api_crawler.get_repo_data(repo_url)
 
         issues_response = self.api_crawler.call_url(
-            self.clean_url(repo_response["issues_url"])
+            self.clean_url(repo_response.get("issues_url"))
         )
         issues = self.get_issues_from_response(issues_response)
 
         pulls_response = self.api_crawler.call_url(
-            self.clean_url(repo_response["pulls_url"])
+            self.clean_url(repo_response.get("pulls_url"))
         )
         pulls = self.get_pulls_from_response(pulls_response)
 
         contributors_response = self.api_crawler.call_url(
-            self.clean_url(repo_response["contributors_url"])
+            self.clean_url(repo_response.get("contributors_url"))
         )
         contributors = self.get_contributors_from_response(contributors_response)
 
         commits_response = self.api_crawler.call_url(
-            self.clean_url(repo_response["commits_url"])
+            self.clean_url(repo_response.get("commits_url"))
         )
         commits = self.get_commits_from_response(commits_response)
 
         releases_response = self.api_crawler.call_url(
-            self.clean_url(repo_response["releases_url"])
+            self.clean_url(repo_response.get("releases_url"))
         )
         releases = self.get_releases_from_response(releases_response)
 
         return {
-            "repo_full_name": repo_response["full_name"],
-            "license": repo_response["license"]["name"],
-            "open_issues_count": repo_response["open_issues_count"],
-            "forks": repo_response["forks"],
-            "stars": repo_response["stargazers_count"],
-            "watchers": repo_response["watchers"],
-            "topics": repo_response["topics"],
-            "pushed_at": repo_response["pushed_at"],
-            "organization": repo_response["organization"]["login"],
+            "repo_full_name": repo_response.get("full_name"),
+            "license": repo_response.get("license", {}).get("name") if repo_response.get("license") else None,
+            "open_issues_count": repo_response.get("open_issues_count"),
+            "forks": repo_response.get("forks"),
+            "stars": repo_response.get("stargazers_count"),
+            "watchers": repo_response.get("watchers"),
+            "topics": repo_response.get("topics"),
+            "pushed_at": repo_response.get("pushed_at"),
+            "organization": repo_response.get("organization", {}).get("login"),
             "contributors": contributors,
             "contributors_count": len(contributors),
             "commits": commits,
             "releases": releases,
             "issues": issues,
             "pulls": pulls,
-            "dependent_repos": dependents["repos"],
-            "dependent_packages": dependents["packages"]
+            "dependent_repos": dependents.get("repos"),
+            "dependent_packages": dependents.get("packages")
         }
