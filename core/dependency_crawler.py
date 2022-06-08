@@ -14,8 +14,8 @@ class DependencyCrawler:
         dependent_repos_text = soup.select_one("a[href*='dependent_type=REPOSITORY']").text
         dependent_packages_text = soup.select_one("a[href*='dependent_type=PACKAGE']").text
 
-        repos = int(re.findall("[0-9]+", dependent_repos_text)[0])
-        packages = int(re.findall("[0-9]+", dependent_packages_text)[0])
+        repos = int(re.findall("[0-9]+", dependent_repos_text.replace(",", ""))[0])
+        packages = int(re.findall("[0-9]+", dependent_packages_text.replace(",", ""))[0])
 
         return {
             "repos": repos,
