@@ -87,6 +87,28 @@ class DataCollector:
 
         return issues_collection
 
+    def get_pulls_response(self, url):
+        page_number = 1
+        per_page = 100
+
+        start = True
+        pulls_collection = []
+        pulls_response = []
+
+        while start or len(pulls_response) >= per_page:
+            try:
+                pulls_response = self.api_crawler.call_url(
+                    f"{self.clean_url(url)}?page={page_number}&per_page={per_page}&state=all"
+                )
+                pulls_collection.extend(pulls_response)
+                page_number += 1
+            except Exception:
+                pulls_response = []
+
+            start = False
+
+        return pulls_collection
+
     def get_issues_from_response(self, issues_response):
         issues = []
         for elem in issues_response:
@@ -145,9 +167,7 @@ class DataCollector:
 
         issues = self.get_issues_from_response(issues_response)
 
-        pulls_response = self.api_crawler.call_url(
-            self.clean_url(repo_response.get("pulls_url"))
-        )
+        pulls_response = self.get_pulls_response(repo_response.get("pulls_url"))
         pulls = self.get_pulls_from_response(pulls_response)
 
         contributors_response = self.api_crawler.call_url(
