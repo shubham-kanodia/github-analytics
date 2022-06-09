@@ -17,8 +17,8 @@ python3 collect_repos.py
 Cleanup and aggregation
 
 ```
-jq -c '.[]' ./data/sources/*.json | jq -s | jq -r '.[].html_url' > ./data/repos_from_topics.txt
-cat ./data/repos_from_landscape.txt ./data/best-of-crypto.txt ./data/repos_from_topics.txt | sort | uniq -u > ./data/repos.txt
+jq -c '.[]' ./data/repositories/*.json | jq -s | jq -r '.[].html_url' > ./data/repos_from_topics.txt
+cat ./data/repos_from_landscape.txt ./data/best-of-crypto.txt ./data/repos_from_topics.txt | awk '! a[$0]++' > ./data/repos.txt
 awk '!/quickstart|documentation|tutorial|\/awesome/' ./data/repos.txt > tmpfile && mv tmpfile ./data/repos.txt
 ```
 
