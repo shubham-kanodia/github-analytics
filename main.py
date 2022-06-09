@@ -21,3 +21,4 @@ for line in open(REPO_LIST_FILE_PATH, "r").readlines():
 
         print(f"Added repo - {repo_data['repo_full_name']}")
         open(COMPLETED_LIST_FILE_PATH, "a").write(line + "\n")
+        break
